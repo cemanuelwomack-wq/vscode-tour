@@ -1,0 +1,1310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HomeGuide — Find Your Way Back</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --charcoal: #1C1C1E;
+    --charcoal-mid: #2E2E32;
+    --amber: #E8A020;
+    --amber-light: #F5C96A;
+    --cream: #F6F1E8;
+    --cream-mid: #EDE5D4;
+    --forest: #2A4A1A;
+    --forest-mid: #3D6B28;
+    --muted: #6B6B6F;
+    --border: #D8D0C0;
+    --white: #FFFFFF;
+    --red: #C0392B;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--charcoal);
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  /* ── NAV ── */
+  nav {
+    background: var(--charcoal);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    color: var(--amber);
+    letter-spacing: -0.5px;
+    text-decoration: none;
+  }
+
+  .nav-logo span {
+    color: var(--white);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: #A0A0A8;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--amber); }
+  .nav-links a.active { color: var(--white); }
+
+  .nav-cta {
+    background: var(--amber);
+    color: var(--charcoal) !important;
+    padding: 8px 18px;
+    border-radius: 6px;
+    font-weight: 600 !important;
+    font-size: 13px !important;
+  }
+  .nav-cta:hover { background: var(--amber-light) !important; color: var(--charcoal) !important; }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--charcoal);
+    padding: 80px 2rem 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -80px; left: 50%;
+    transform: translateX(-50%);
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(232,160,32,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(232,160,32,0.15);
+    border: 1px solid rgba(232,160,32,0.3);
+    color: var(--amber);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 100px;
+    margin-bottom: 28px;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(42px, 7vw, 72px);
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1.05;
+    letter-spacing: -2px;
+    margin-bottom: 20px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--amber);
+  }
+
+  .hero p {
+    color: #A0A0A8;
+    font-size: 18px;
+    max-width: 520px;
+    margin: 0 auto 40px;
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  .search-bar {
+    display: flex;
+    max-width: 560px;
+    margin: 0 auto 48px;
+    background: var(--white);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.1);
+  }
+
+  .search-bar input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 16px 20px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    color: var(--charcoal);
+    background: transparent;
+  }
+
+  .search-bar input::placeholder { color: #9A9A9E; }
+
+  .search-bar button {
+    background: var(--amber);
+    border: none;
+    padding: 0 28px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--charcoal);
+    cursor: pointer;
+    transition: background 0.2s;
+    white-space: nowrap;
+  }
+
+  .search-bar button:hover { background: var(--amber-light); }
+
+  .category-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    padding-bottom: 0;
+    position: relative;
+  }
+
+  .tab {
+    padding: 12px 24px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: #6A6A72;
+    background: none;
+    border: none;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .tab:hover { color: var(--white); }
+
+  .tab.active {
+    color: var(--amber);
+    border-bottom-color: var(--amber);
+  }
+
+  .tab-icon {
+    font-size: 16px;
+  }
+
+  /* ── STATS STRIP ── */
+  .stats-strip {
+    background: var(--charcoal-mid);
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding: 20px 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+  }
+
+  .stat {
+    text-align: center;
+  }
+
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--amber);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 12px;
+    color: #6A6A72;
+    letter-spacing: 0.5px;
+    margin-top: 4px;
+  }
+
+  /* ── MAIN LAYOUT ── */
+  .main-wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 2rem;
+  }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 40px;
+    align-items: start;
+  }
+
+  /* ── SECTION HEADERS ── */
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 24px;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    color: var(--charcoal);
+  }
+
+  .section-link {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--forest-mid);
+    text-decoration: none;
+    border-bottom: 1px solid var(--forest-mid);
+    padding-bottom: 1px;
+  }
+
+  /* ── NONPROFIT CARDS ── */
+  .org-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 16px;
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    gap: 20px;
+    transition: box-shadow 0.2s, transform 0.2s;
+    cursor: pointer;
+  }
+
+  .org-card:hover {
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    transform: translateY(-2px);
+  }
+
+  .org-logo {
+    width: 64px;
+    height: 64px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .org-logo.jobs { background: #EAF3DE; color: #3D6B28; }
+  .org-logo.housing { background: #E6F1FB; color: #185FA5; }
+  .org-logo.mental { background: #FBEAF0; color: #993556; }
+  .org-logo.edu { background: #FAEEDA; color: #854F0B; }
+  .org-logo.legal { background: #EEEDFE; color: #534AB7; }
+
+  .org-body {}
+
+  .org-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 6px;
+  }
+
+  .org-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--charcoal);
+    line-height: 1.2;
+  }
+
+  .org-badge {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding: 4px 10px;
+    border-radius: 100px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .badge-jobs { background: #EAF3DE; color: #3D6B28; }
+  .badge-housing { background: #E6F1FB; color: #185FA5; }
+  .badge-mental { background: #FBEAF0; color: #993556; }
+  .badge-edu { background: #FAEEDA; color: #854F0B; }
+  .badge-legal { background: #EEEDFE; color: #534AB7; }
+  .badge-multi { background: #F1EFE8; color: #444441; }
+
+  .stars {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 8px;
+  }
+
+  .star-row {
+    display: flex;
+    gap: 2px;
+  }
+
+  .star {
+    color: var(--amber);
+    font-size: 14px;
+  }
+
+  .star.empty { color: var(--border); }
+
+  .rating-num {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--charcoal);
+  }
+
+  .review-count {
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  .org-desc {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.6;
+    margin-bottom: 14px;
+  }
+
+  .org-meta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .meta-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .meta-icon { font-size: 14px; }
+
+  .org-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid var(--cream-mid);
+  }
+
+  .btn {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    transition: all 0.15s;
+  }
+
+  .btn-primary {
+    background: var(--charcoal);
+    color: var(--white);
+  }
+
+  .btn-primary:hover { background: var(--charcoal-mid); }
+
+  .btn-outline {
+    background: none;
+    color: var(--charcoal);
+    border: 1.5px solid var(--border);
+  }
+
+  .btn-outline:hover { border-color: var(--charcoal); }
+
+  .btn-directions {
+    background: var(--forest);
+    color: var(--white);
+  }
+
+  .btn-directions:hover { background: var(--forest-mid); }
+
+  /* ── SIDEBAR ── */
+  .sidebar {}
+
+  .sidebar-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 20px;
+  }
+
+  .sidebar-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+
+  .filter-group {
+    margin-bottom: 16px;
+  }
+
+  .filter-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+
+  .filter-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .pill {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 100px;
+    border: 1.5px solid var(--border);
+    background: none;
+    cursor: pointer;
+    color: var(--charcoal);
+    transition: all 0.15s;
+  }
+
+  .pill:hover, .pill.active {
+    background: var(--charcoal);
+    color: var(--white);
+    border-color: var(--charcoal);
+  }
+
+  .pill.active-amber {
+    background: var(--amber);
+    color: var(--charcoal);
+    border-color: var(--amber);
+    font-weight: 600;
+  }
+
+  /* Recent review */
+  .review-item {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--cream-mid);
+  }
+
+  .review-item:last-child { border-bottom: none; padding-bottom: 0; }
+
+  .review-org { font-size: 13px; font-weight: 600; color: var(--charcoal); margin-bottom: 3px; }
+
+  .review-text { font-size: 12px; color: var(--muted); line-height: 1.5; }
+
+  .review-author { font-size: 11px; color: var(--amber); margin-top: 4px; font-weight: 500; }
+
+  /* ── BLOG ── */
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 8px;
+  }
+
+  .blog-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: box-shadow 0.2s, transform 0.2s;
+    cursor: pointer;
+  }
+
+  .blog-card:hover {
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    transform: translateY(-2px);
+  }
+
+  .blog-img {
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+  }
+
+  .blog-img.img1 { background: #1C1C1E; }
+  .blog-img.img2 { background: #2A4A1A; }
+  .blog-img.img3 { background: #4A2A08; }
+
+  .blog-body { padding: 20px; }
+
+  .blog-tag {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 8px;
+  }
+
+  .blog-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 10px;
+    color: var(--charcoal);
+  }
+
+  .blog-excerpt {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.6;
+    margin-bottom: 14px;
+  }
+
+  .blog-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  /* ── INTERVIEWS ── */
+  .interviews-section {
+    background: var(--charcoal);
+    padding: 60px 2rem;
+    margin-top: 0;
+  }
+
+  .interviews-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .interviews-section .section-title { color: var(--white); }
+  .interviews-section .section-link { color: var(--amber); border-color: var(--amber); }
+
+  .interview-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 8px;
+  }
+
+  .interview-card {
+    background: var(--charcoal-mid);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    padding: 24px;
+    transition: border-color 0.2s;
+    cursor: pointer;
+  }
+
+  .interview-card:hover { border-color: var(--amber); }
+
+  .interview-avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    font-family: 'Playfair Display', serif;
+  }
+
+  .av1 { background: rgba(232,160,32,0.2); color: var(--amber); }
+  .av2 { background: rgba(42,74,26,0.5); color: #7EC850; }
+  .av3 { background: rgba(24,95,165,0.3); color: #85B7EB; }
+
+  .interview-quote {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 16px;
+    color: var(--white);
+    line-height: 1.5;
+    margin-bottom: 16px;
+    opacity: 0.9;
+  }
+
+  .interview-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--amber);
+  }
+
+  .interview-sub {
+    font-size: 12px;
+    color: #6A6A72;
+    margin-top: 2px;
+  }
+
+  .interview-tag {
+    display: inline-block;
+    margin-top: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: #6A6A72;
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 4px 10px;
+    border-radius: 100px;
+  }
+
+  /* ── SUBMIT CTA ── */
+  .cta-band {
+    background: var(--amber);
+    padding: 56px 2rem;
+    text-align: center;
+  }
+
+  .cta-band h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 900;
+    color: var(--charcoal);
+    margin-bottom: 12px;
+    letter-spacing: -1px;
+  }
+
+  .cta-band p {
+    font-size: 16px;
+    color: rgba(28,28,30,0.7);
+    max-width: 480px;
+    margin: 0 auto 28px;
+  }
+
+  .cta-btn-group { display: flex; gap: 12px; justify-content: center; }
+
+  .btn-dark {
+    background: var(--charcoal);
+    color: var(--white);
+    font-size: 15px;
+    padding: 13px 28px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  .btn-dark:hover { background: var(--charcoal-mid); }
+
+  .btn-ghost-dark {
+    background: transparent;
+    color: var(--charcoal);
+    font-size: 15px;
+    padding: 12px 28px;
+    border-radius: 10px;
+    border: 2px solid var(--charcoal);
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .btn-ghost-dark:hover { background: rgba(28,28,30,0.1); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--charcoal);
+    padding: 48px 2rem 28px;
+    color: #6A6A72;
+  }
+
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .footer-top {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    color: var(--amber);
+    margin-bottom: 12px;
+  }
+
+  .footer-logo span { color: var(--white); }
+
+  .footer-about {
+    font-size: 14px;
+    line-height: 1.7;
+    max-width: 260px;
+  }
+
+  .footer-col h4 {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 16px;
+  }
+
+  .footer-col ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footer-col a {
+    color: #6A6A72;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.15s;
+  }
+
+  .footer-col a:hover { color: var(--amber); }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+  }
+
+  .footer-bottom a { color: var(--amber); text-decoration: none; }
+
+  /* ── FEATURED BADGE ── */
+  .featured-ribbon {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: linear-gradient(135deg, var(--amber), #F5C96A);
+    color: var(--charcoal);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+  }
+
+  /* ── MOBILE NAV TOGGLE ── */
+  .mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--white);
+    cursor: pointer;
+    font-size: 22px;
+  }
+
+  @media (max-width: 900px) {
+    .two-col { grid-template-columns: 1fr; }
+    .blog-grid { grid-template-columns: 1fr 1fr; }
+    .interview-grid { grid-template-columns: 1fr 1fr; }
+    .footer-top { grid-template-columns: 1fr 1fr; }
+    .nav-links { display: none; }
+    .mobile-menu-btn { display: block; }
+  }
+
+  @media (max-width: 600px) {
+    .blog-grid { grid-template-columns: 1fr; }
+    .interview-grid { grid-template-columns: 1fr; }
+    .footer-top { grid-template-columns: 1fr; }
+    .stats-strip { gap: 24px; }
+    .hero h1 { font-size: 38px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <a href="#" class="nav-logo">Home<span>Guide</span></a>
+  <ul class="nav-links">
+    <li><a href="#" class="active">Find Resources</a></li>
+    <li><a href="#">Blog</a></li>
+    <li><a href="#">Stories</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#" class="nav-cta">Write a Review</a></li>
+  </ul>
+  <button class="mobile-menu-btn">☰</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow">🔑 By the community, for the community</div>
+  <h1>Find the help you<br><em>actually</em> need.</h1>
+  <p>Honest ratings and reviews of nonprofits helping formerly incarcerated New Yorkers. From people who've been there.</p>
+
+  <div class="search-bar">
+    <input type="text" placeholder="Search by name, neighborhood, or service…">
+    <button>Search NYC</button>
+  </div>
+
+  <div class="category-tabs">
+    <button class="tab active" onclick="setTab(this, 'all')">
+      <span class="tab-icon">⬡</span> All Resources
+    </button>
+    <button class="tab" onclick="setTab(this, 'jobs')">
+      <span class="tab-icon">💼</span> Jobs
+    </button>
+    <button class="tab" onclick="setTab(this, 'housing')">
+      <span class="tab-icon">🏠</span> Housing
+    </button>
+    <button class="tab" onclick="setTab(this, 'mental')">
+      <span class="tab-icon">🧠</span> Mental Health
+    </button>
+    <button class="tab" onclick="setTab(this, 'edu')">
+      <span class="tab-icon">📚</span> Education
+    </button>
+    <button class="tab" onclick="setTab(this, 'legal')">
+      <span class="tab-icon">⚖️</span> Legal Aid
+    </button>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-strip">
+  <div class="stat">
+    <div class="stat-num">247</div>
+    <div class="stat-label">Organizations Listed</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">1,840</div>
+    <div class="stat-label">Community Reviews</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">5</div>
+    <div class="stat-label">NYC Boroughs</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">6</div>
+    <div class="stat-label">Service Categories</div>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="main-wrap">
+  <div class="two-col">
+
+    <!-- LEFT: ORG LISTINGS -->
+    <div>
+      <div class="section-header">
+        <h2 class="section-title">Top Rated in NYC</h2>
+        <a href="#" class="section-link">See all →</a>
+      </div>
+
+      <!-- Card 1 -->
+      <div class="org-card">
+        <div class="org-logo jobs">C</div>
+        <div class="org-body">
+          <div class="featured-ribbon">★ Editor's Pick</div>
+          <div class="org-top">
+            <div class="org-name">Center for Employment Opportunities</div>
+            <span class="org-badge badge-jobs">Jobs</span>
+          </div>
+          <div class="stars">
+            <div class="star-row">
+              <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+            </div>
+            <span class="rating-num">4.9</span>
+            <span class="review-count">(312 reviews)</span>
+          </div>
+          <p class="org-desc">Immediate paid transitional work within 24 hours of release. Job coaching, resume help, and employer connections. Staff are real with you — no games.</p>
+          <div class="org-meta">
+            <span class="meta-item"><span class="meta-icon">📍</span> 50 Broadway, Manhattan</span>
+            <span class="meta-item"><span class="meta-icon">🕐</span> Mon–Fri 8am–5pm</span>
+            <span class="meta-item"><span class="meta-icon">📞</span> (212) 422-4430</span>
+          </div>
+          <div class="org-actions">
+            <a href="#" class="btn btn-primary">Read Reviews</a>
+            <a href="https://maps.google.com" class="btn btn-directions" target="_blank">Get Directions ↗</a>
+            <a href="#" class="btn btn-outline">Write Review</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="org-card">
+        <div class="org-logo housing">H</div>
+        <div class="org-body">
+          <div class="org-top">
+            <div class="org-name">Exodus Transitional Community</div>
+            <span class="org-badge badge-multi">Housing + Jobs</span>
+          </div>
+          <div class="stars">
+            <div class="star-row">
+              <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star empty">★</span>
+            </div>
+            <span class="rating-num">4.7</span>
+            <span class="review-count">(198 reviews)</span>
+          </div>
+          <p class="org-desc">East Harlem-based, peer-led. Case managers with lived experience who actually answer the phone. Transitional housing and job placement with real follow-through.</p>
+          <div class="org-meta">
+            <span class="meta-item"><span class="meta-icon">📍</span> East Harlem, Manhattan</span>
+            <span class="meta-item"><span class="meta-icon">🕐</span> Mon–Sat 9am–6pm</span>
+            <span class="meta-item"><span class="meta-icon">💵</span> Free</span>
+          </div>
+          <div class="org-actions">
+            <a href="#" class="btn btn-primary">Read Reviews</a>
+            <a href="https://maps.google.com" class="btn btn-directions" target="_blank">Get Directions ↗</a>
+            <a href="#" class="btn btn-outline">Write Review</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="org-card">
+        <div class="org-logo mental">M</div>
+        <div class="org-body">
+          <div class="org-top">
+            <div class="org-name">The Fortune Society</div>
+            <span class="org-badge badge-mental">Mental Health</span>
+          </div>
+          <div class="stars">
+            <div class="star-row">
+              <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star empty">★</span>
+            </div>
+            <span class="rating-num">4.6</span>
+            <span class="review-count">(274 reviews)</span>
+          </div>
+          <p class="org-desc">Full wraparound services — therapy, substance use programs, housing, and education. One of the most complete orgs in the city. Long waitlist but worth it.</p>
+          <div class="org-meta">
+            <span class="meta-item"><span class="meta-icon">📍</span> Long Island City, Queens</span>
+            <span class="meta-item"><span class="meta-icon">🕐</span> Mon–Fri 8:30am–5pm</span>
+            <span class="meta-item"><span class="meta-icon">💵</span> Sliding Scale</span>
+          </div>
+          <div class="org-actions">
+            <a href="#" class="btn btn-primary">Read Reviews</a>
+            <a href="https://maps.google.com" class="btn btn-directions" target="_blank">Get Directions ↗</a>
+            <a href="#" class="btn btn-outline">Write Review</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="org-card">
+        <div class="org-logo edu">E</div>
+        <div class="org-body">
+          <div class="org-top">
+            <div class="org-name">College & Community Fellowship</div>
+            <span class="org-badge badge-edu">Education</span>
+          </div>
+          <div class="stars">
+            <div class="star-row">
+              <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+            </div>
+            <span class="rating-num">4.8</span>
+            <span class="review-count">(143 reviews)</span>
+          </div>
+          <p class="org-desc">Helps formerly incarcerated women get to and through college. Academic advising, financial aid help, and a real community. Changed lives here — read the reviews.</p>
+          <div class="org-meta">
+            <span class="meta-item"><span class="meta-icon">📍</span> Washington Heights, Manhattan</span>
+            <span class="meta-item"><span class="meta-icon">👤</span> Women & Non-Binary</span>
+            <span class="meta-item"><span class="meta-icon">💵</span> Free</span>
+          </div>
+          <div class="org-actions">
+            <a href="#" class="btn btn-primary">Read Reviews</a>
+            <a href="https://maps.google.com" class="btn btn-directions" target="_blank">Get Directions ↗</a>
+            <a href="#" class="btn btn-outline">Write Review</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+
+      <div class="sidebar-card">
+        <h3 class="sidebar-title">Filter</h3>
+
+        <div class="filter-group">
+          <div class="filter-label">Borough</div>
+          <div class="filter-pills">
+            <button class="pill active-amber">All NYC</button>
+            <button class="pill">Manhattan</button>
+            <button class="pill">Brooklyn</button>
+            <button class="pill">Bronx</button>
+            <button class="pill">Queens</button>
+            <button class="pill">Staten Island</button>
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <div class="filter-label">Service Type</div>
+          <div class="filter-pills">
+            <button class="pill">Jobs</button>
+            <button class="pill">Housing</button>
+            <button class="pill">Mental Health</button>
+            <button class="pill">Education</button>
+            <button class="pill">Legal Aid</button>
+            <button class="pill">Re-Entry</button>
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <div class="filter-label">Rating</div>
+          <div class="filter-pills">
+            <button class="pill">★ 4.5+</button>
+            <button class="pill">★ 4.0+</button>
+            <button class="pill">All Ratings</button>
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <div class="filter-label">Cost</div>
+          <div class="filter-pills">
+            <button class="pill">Free Only</button>
+            <button class="pill">Any</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="sidebar-card">
+        <h3 class="sidebar-title">Recent Reviews</h3>
+
+        <div class="review-item">
+          <div class="stars"><div class="star-row">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+          </div></div>
+          <div class="review-org">Center for Employment Opportunities</div>
+          <p class="review-text">"Had a job lined up within the first week. My case manager called me every day."</p>
+          <div class="review-author">— D.W., Bronx</div>
+        </div>
+
+        <div class="review-item">
+          <div class="stars"><div class="star-row">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star empty">★</span>
+          </div></div>
+          <div class="review-org">The Fortune Society</div>
+          <p class="review-text">"Waitlist is rough but once you're in, they really take care of you. Therapist was solid."</p>
+          <div class="review-author">— M.T., Queens</div>
+        </div>
+
+        <div class="review-item">
+          <div class="stars"><div class="star-row">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+          </div></div>
+          <div class="review-org">College & Community Fellowship</div>
+          <p class="review-text">"They helped me get my financial aid sorted after I thought it was impossible."</p>
+          <div class="review-author">— T.R., Harlem</div>
+        </div>
+      </div>
+
+      <div class="sidebar-card" style="background: var(--charcoal); border-color: transparent;">
+        <div style="font-size: 24px; margin-bottom: 12px;">✍️</div>
+        <h3 class="sidebar-title" style="color: var(--white);">Know a great org?</h3>
+        <p style="font-size: 14px; color: #6A6A72; margin-bottom: 16px; line-height: 1.6;">Help the community by adding a nonprofit or leaving a review. Your experience matters.</p>
+        <a href="#" class="btn btn-primary" style="background: var(--amber); color: var(--charcoal); width: 100%; justify-content: center;">Submit a Review →</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- BLOG SECTION -->
+  <div style="margin-top: 60px;">
+    <div class="section-header">
+      <h2 class="section-title">From the Blog</h2>
+      <a href="#" class="section-link">All posts →</a>
+    </div>
+
+    <div class="blog-grid">
+      <div class="blog-card">
+        <div class="blog-img img1">📋</div>
+        <div class="blog-body">
+          <div class="blog-tag">Housing</div>
+          <div class="blog-title">What to Say (and Not Say) on a Housing Application After Conviction</div>
+          <p class="blog-excerpt">The box on the application isn't automatic rejection. Here's what NYC law says and how to navigate it.</p>
+          <div class="blog-meta">
+            <span>8 min read</span>
+            <span>Mar 22, 2025</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="blog-card">
+        <div class="blog-img img2">💼</div>
+        <div class="blog-body">
+          <div class="blog-tag">Jobs</div>
+          <div class="blog-title">The 5 NYC Employers Who Actually Mean It When They Say Fair Chance</div>
+          <p class="blog-excerpt">Not every company posting "fair chance employer" follows through. We interviewed hiring managers and applicants to find who does.</p>
+          <div class="blog-meta">
+            <span>12 min read</span>
+            <span>Mar 10, 2025</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="blog-card">
+        <div class="blog-img img3">🧠</div>
+        <div class="blog-body">
+          <div class="blog-tag">Mental Health</div>
+          <div class="blog-title">Reentry and Your Mental Health: What the First 90 Days Can Feel Like</div>
+          <p class="blog-excerpt">The outside can be overwhelming. A licensed therapist who works with returning citizens breaks down what to expect.</p>
+          <div class="blog-meta">
+            <span>10 min read</span>
+            <span>Feb 28, 2025</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- INTERVIEWS SECTION -->
+<section class="interviews-section">
+  <div class="interviews-inner">
+    <div class="section-header">
+      <h2 class="section-title">Real Interviews</h2>
+      <a href="#" class="section-link">All interviews →</a>
+    </div>
+
+    <div class="interview-grid">
+      <div class="interview-card">
+        <div class="interview-avatar av1">D</div>
+        <div class="interview-quote">"I came home with $40 and a MetroCard. CEO had me working and paid within 48 hours. That's not nothing — that's everything."</div>
+        <div class="interview-name">Darius W.</div>
+        <div class="interview-sub">Released 2023 · Now employed full-time</div>
+        <span class="interview-tag">Jobs & Reentry</span>
+      </div>
+
+      <div class="interview-card">
+        <div class="interview-avatar av2">M</div>
+        <div class="interview-quote">"I told my counselor at Fortune that I didn't trust therapy. She said, 'That's fine, we'll just talk.' That was three years ago. I'm still going."</div>
+        <div class="interview-name">Marcus T.</div>
+        <div class="interview-sub">Released 2021 · Mental health advocate</div>
+        <span class="interview-tag">Mental Health</span>
+      </div>
+
+      <div class="interview-card">
+        <div class="interview-avatar av3">T</div>
+        <div class="interview-quote">"I was 38 when I enrolled in college. CCF helped me fill out the FAFSA, get tutoring, and believe I belonged there. I graduated last May."</div>
+        <div class="interview-name">Tamara R.</div>
+        <div class="interview-sub">Released 2019 · B.A. in Social Work</div>
+        <span class="interview-tag">Education</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="cta-band">
+  <h2>Have you been there?</h2>
+  <p>Your review could be the one that helps someone else find their footing. It takes 2 minutes.</p>
+  <div class="cta-btn-group">
+    <a href="#" class="btn-dark">Write a Review</a>
+    <a href="#" class="btn-ghost-dark">Submit an Organization</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo">Home<span>Guide</span></div>
+        <p class="footer-about">Honest, community-powered ratings of nonprofits serving formerly incarcerated people across New York City. Built by people who've been through it.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="#">Find Housing</a></li>
+          <li><a href="#">Find Jobs</a></li>
+          <li><a href="#">Mental Health</a></li>
+          <li><a href="#">Education</a></li>
+          <li><a href="#">Legal Aid</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Community</h4>
+        <ul>
+          <li><a href="#">Write a Review</a></li>
+          <li><a href="#">Submit an Org</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Interviews</a></li>
+          <li><a href="#">Newsletter</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>About</h4>
+        <ul>
+          <li><a href="#">Our Mission</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Use</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 HomeGuide NYC. Made with purpose.</span>
+      <span>Questions? <a href="mailto:hello@homeguide.nyc">hello@homeguide.nyc</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function setTab(el, category) {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    el.classList.add('active');
+  }
+
+  document.querySelectorAll('.pill').forEach(pill => {
+    pill.addEventListener('click', function() {
+      const group = this.closest('.filter-pills');
+      group.querySelectorAll('.pill').forEach(p => {
+        p.classList.remove('active', 'active-amber');
+      });
+      this.classList.add('active-amber');
+    });
+  });
+</script>
+</body>
+</html>
