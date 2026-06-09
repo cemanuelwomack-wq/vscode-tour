@@ -272,6 +272,54 @@
     margin-top: 4px;
   }
 
+  /* ── HOW IT WORKS BAR ── */
+  .how-it-works-bar {
+    background: var(--cream-mid);
+    border-bottom: 1px solid var(--border);
+    padding: 14px 2rem;
+    text-align: center;
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+  .how-it-works-bar strong { color: var(--charcoal); }
+
+  /* ── VERIFIED TAG ── */
+  .verified-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--forest);
+    background: rgba(46,92,28,0.1);
+    border: 1px solid rgba(46,92,28,0.25);
+    padding: 2px 8px;
+    border-radius: 100px;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+  }
+
+  /* ── INSIDE TRACK ── */
+  .inside-track {
+    background: linear-gradient(135deg, rgba(46,92,28,0.07) 0%, rgba(46,92,28,0.03) 100%);
+    border-left: 3px solid var(--forest-mid);
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin: 14px 0 4px;
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--charcoal);
+  }
+  .inside-track-title {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    color: var(--forest);
+    margin-bottom: 7px;
+  }
+
   /* ── MAIN LAYOUT ── */
   .main-wrap {
     max-width: 1200px;
@@ -1637,21 +1685,25 @@
 <!-- STATS -->
 <div class="stats-strip">
   <div class="stat">
-    <div class="stat-num">247</div>
-    <div class="stat-label">Organizations Listed</div>
+    <div class="stat-num">Peer</div>
+    <div class="stat-label">Built by those who've been home</div>
   </div>
   <div class="stat">
-    <div class="stat-num">50+</div>
-    <div class="stat-label">Peer-Sourced Insights</div>
+    <div class="stat-num">Free</div>
+    <div class="stat-label">No ads, no paid results</div>
   </div>
   <div class="stat">
     <div class="stat-num">5</div>
-    <div class="stat-label">NYC Boroughs</div>
+    <div class="stat-label">NYC Boroughs Covered</div>
   </div>
   <div class="stat">
-    <div class="stat-num">6</div>
-    <div class="stat-label">Service Categories</div>
+    <div class="stat-num">Live</div>
+    <div class="stat-label">Updated as things change</div>
   </div>
+</div>
+
+<div class="how-it-works-bar">
+  <strong>How this guide works:</strong> Every entry comes from someone who's actually used the service — not an org's website or press release. When a program changes, a key staff member leaves, or the inside path shifts, we update it.
 </div>
 
 
@@ -2250,7 +2302,7 @@
     <!-- LEFT: ORG LISTINGS -->
     <div>
       <div class="section-header">
-        <h2 class="section-title">Top Rated in NYC</h2>
+        <h2 class="section-title">Highlighted NYC Resources</h2>
         <a href="#" class="section-link">See all →</a>
       </div>
 
@@ -2258,10 +2310,11 @@
       <div class="org-card">
         <div class="org-logo jobs">C</div>
         <div class="org-body">
-          <div class="featured-ribbon">★ Editor's Pick</div>
+          <div class="featured-ribbon">⚡ Insider Pick</div>
           <div class="org-top">
             <div class="org-name">Center for Employment Opportunities</div>
             <span class="org-badge badge-jobs">Jobs</span>
+            <span class="verified-tag">✓ Peer-verified</span>
           </div>
           <div class="stars">
             <div class="star-row">
@@ -2276,10 +2329,14 @@
             <span class="meta-item"><span class="meta-icon">🕐</span> Mon–Fri 8am–5pm</span>
             <span class="meta-item"><span class="meta-icon">📞</span> (212) 422-4430</span>
           </div>
+          <div class="inside-track">
+            <div class="inside-track-title">⚡ Inside Track · Updated Jun 2025</div>
+            CEO puts you on a paid work crew the same day — often within hours of walking in. The "green shirt" day labor is not the endpoint. Your move is to impress your crew supervisor and ask directly about their internal hiring pathway. Staff who are former participants are your best resource — they know every shortcut. Don't wait for anyone to hand you information; ask for it.
+          </div>
           <div class="org-actions">
             <a href="#" class="btn btn-primary">Read Reviews</a>
             <a href="https://maps.google.com" class="btn btn-directions" target="_blank">Get Directions ↗</a>
-            <a href="#" class="btn btn-outline">Write Review</a>
+            <a href="#" class="btn btn-outline">Share Your Experience</a>
           </div>
         </div>
       </div>
@@ -2291,6 +2348,7 @@
           <div class="org-top">
             <div class="org-name">Exodus Transitional Community</div>
             <span class="org-badge badge-multi">Housing + Jobs</span>
+            <span class="verified-tag">✓ Peer-verified</span>
           </div>
           <div class="stars">
             <div class="star-row">
@@ -2305,10 +2363,14 @@
             <span class="meta-item"><span class="meta-icon">🕐</span> Mon–Sat 9am–6pm</span>
             <span class="meta-item"><span class="meta-icon">💵</span> Free</span>
           </div>
+          <div class="inside-track">
+            <div class="inside-track-title">⚡ Inside Track · Updated Jun 2025</div>
+            Ask to be matched with a peer staff member — someone who has been through the system themselves. The difference between a case manager with lived experience and one without is significant. East Harlem (the main site) moves faster than their satellite locations. Don't just accept whoever's at the front desk; ask specifically who on staff has been home and request them.
+          </div>
           <div class="org-actions">
             <a href="#" class="btn btn-primary">Read Reviews</a>
             <a href="https://maps.google.com" class="btn btn-directions" target="_blank">Get Directions ↗</a>
-            <a href="#" class="btn btn-outline">Write Review</a>
+            <a href="#" class="btn btn-outline">Share Your Experience</a>
           </div>
         </div>
       </div>
@@ -2320,6 +2382,7 @@
           <div class="org-top">
             <div class="org-name">The Fortune Society</div>
             <span class="org-badge badge-mental">Mental Health</span>
+            <span class="verified-tag">✓ Peer-verified</span>
           </div>
           <div class="stars">
             <div class="star-row">
@@ -2334,10 +2397,14 @@
             <span class="meta-item"><span class="meta-icon">🕐</span> Mon–Fri 8:30am–5pm</span>
             <span class="meta-item"><span class="meta-icon">💵</span> Sliding Scale</span>
           </div>
+          <div class="inside-track">
+            <div class="inside-track-title">⚡ Inside Track · Updated Jun 2025</div>
+            See the <strong>Jobs tab</strong> for the full breakdown on Fortune's employment path (CDW → TWP). For the wraparound services: the waitlists are real and long — get on every list the first day you walk in, before you think you need something. Staff will pitch you on multiple programs. Stay focused on what you came for and don't get pulled into services you don't need yet. They will not hire you directly; that's not the goal.
+          </div>
           <div class="org-actions">
             <a href="#" class="btn btn-primary">Read Reviews</a>
             <a href="https://maps.google.com" class="btn btn-directions" target="_blank">Get Directions ↗</a>
-            <a href="#" class="btn btn-outline">Write Review</a>
+            <a href="#" class="btn btn-outline">Share Your Experience</a>
           </div>
         </div>
       </div>
@@ -2349,6 +2416,7 @@
           <div class="org-top">
             <div class="org-name">College & Community Fellowship</div>
             <span class="org-badge badge-edu">Education</span>
+            <span class="verified-tag">✓ Peer-verified</span>
           </div>
           <div class="stars">
             <div class="star-row">
@@ -2357,16 +2425,20 @@
             <span class="rating-num">4.8</span>
             <span class="review-count">(143 reviews)</span>
           </div>
-          <p class="org-desc">Helps formerly incarcerated women get to and through college. Academic advising, financial aid help, and a real community. Changed lives here — read the reviews.</p>
+          <p class="org-desc">Helps formerly incarcerated women get to and through college. Academic advising, financial aid help, and strong peer support. Changed lives here — real results.</p>
           <div class="org-meta">
             <span class="meta-item"><span class="meta-icon">📍</span> Washington Heights, Manhattan</span>
             <span class="meta-item"><span class="meta-icon">👤</span> Women & Non-Binary</span>
             <span class="meta-item"><span class="meta-icon">💵</span> Free</span>
           </div>
+          <div class="inside-track">
+            <div class="inside-track-title">⚡ Inside Track · Updated Jun 2025</div>
+            Their FAFSA restoration expertise is the hidden value here. If you're returning from incarceration, your federal financial aid eligibility may have been restored under recent law changes — CCF knows this cold and can walk you through it even if you're not ready for school yet. Ask specifically about this from day one. Also: the peer navigators (current or former students) are more useful than the administrative staff — ask to be connected to them first.
+          </div>
           <div class="org-actions">
             <a href="#" class="btn btn-primary">Read Reviews</a>
             <a href="https://maps.google.com" class="btn btn-directions" target="_blank">Get Directions ↗</a>
-            <a href="#" class="btn btn-outline">Write Review</a>
+            <a href="#" class="btn btn-outline">Share Your Experience</a>
           </div>
         </div>
       </div>
