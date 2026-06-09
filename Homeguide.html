@@ -862,6 +862,7 @@
   .wtdty-section {
     background: var(--charcoal);
     padding: 64px 2rem;
+    display: none;
   }
 
   .wtdty-inner { max-width: 1100px; margin: 0 auto; }
@@ -1969,6 +1970,7 @@
   function setTab(el, category) {
     document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
     el.classList.add('active');
+    document.querySelector('.wtdty-section').style.display = category === 'housing' ? 'block' : 'none';
   }
 
   function setProgTab(el, id) {
