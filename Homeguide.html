@@ -85,7 +85,14 @@
 
   /* ── HERO ── */
   .hero {
-    background: var(--charcoal);
+    background: linear-gradient(180deg,
+      #1864AA 0%,
+      #3A8FD8 18%,
+      #78BEF0 42%,
+      #C8E8F5 62%,
+      #F5E8C0 80%,
+      #E8C460 100%
+    );
     padding: 80px 2rem 0;
     text-align: center;
     position: relative;
@@ -95,21 +102,24 @@
   .hero::before {
     content: '';
     position: absolute;
-    top: -80px; left: 50%;
-    transform: translateX(-50%);
-    width: 600px; height: 600px;
+    top: 44px;
+    right: 16%;
+    width: 84px;
+    height: 84px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(232,160,32,0.12) 0%, transparent 70%);
+    background: radial-gradient(circle, #FFFDE7 0%, #FFF59D 35%, rgba(255,235,59,0.5) 65%, transparent 100%);
+    box-shadow: 0 0 0 10px rgba(255,235,59,0.18), 0 0 50px 22px rgba(255,220,50,0.22);
     pointer-events: none;
+    z-index: 1;
   }
 
   .hero-eyebrow {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: rgba(232,160,32,0.15);
-    border: 1px solid rgba(232,160,32,0.3);
-    color: var(--amber);
+    background: rgba(255,255,255,0.18);
+    border: 1px solid rgba(255,255,255,0.4);
+    color: rgba(255,255,255,0.95);
     font-size: 12px;
     font-weight: 600;
     letter-spacing: 1.5px;
@@ -121,29 +131,31 @@
 
   .hero h1 {
     font-family: Georgia, 'Times New Roman', serif;
-    font-size: clamp(42px, 7vw, 72px);
+    font-size: clamp(54px, 9vw, 96px);
     font-weight: 900;
     color: var(--white);
-    line-height: 1.05;
-    letter-spacing: -2px;
-    margin-bottom: 20px;
+    line-height: 1.0;
+    letter-spacing: -3px;
+    margin-bottom: 22px;
     max-width: 700px;
     margin-left: auto;
     margin-right: auto;
+    text-shadow: 0 2px 28px rgba(0,0,0,0.3);
   }
 
   .hero h1 em {
     font-style: italic;
-    color: var(--amber);
+    color: #FFE082;
   }
 
   .hero p {
-    color: #A0A0A8;
+    color: rgba(255,255,255,0.92);
     font-size: 18px;
-    max-width: 520px;
+    max-width: 560px;
     margin: 0 auto 40px;
-    line-height: 1.7;
+    line-height: 1.75;
     font-weight: 300;
+    text-shadow: 0 1px 12px rgba(0,0,0,0.22);
   }
 
   .search-bar {
@@ -153,7 +165,19 @@
     background: var(--white);
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 0 0 1px rgba(255,255,255,0.1);
+    box-shadow: 0 4px 32px rgba(0,0,0,0.2);
+  }
+
+  .hero-skyline-wrap {
+    line-height: 0;
+    margin: 0;
+    position: relative;
+    z-index: 0;
+  }
+
+  .hero-tabs-strip {
+    background: var(--charcoal);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
   }
 
   .search-bar input {
@@ -1501,15 +1525,93 @@
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-eyebrow">🔑 By the community, for the community</div>
-  <h1>Find the help you<br><em>actually</em> need.</h1>
-  <p>Honest ratings and reviews of nonprofits helping formerly incarcerated New Yorkers. From people who've been there.</p>
+  <div class="hero-eyebrow">🔑 Built by those who've lived it — kept current by those still navigating it</div>
+  <h1>Welcome <em>Home</em></h1>
+  <p>A reentry guide to NYC from people who've actually done it. Real programs, real paths, real talk — updated because what works one month may not be the move the next.</p>
 
   <div class="search-bar">
     <input type="text" placeholder="Search by name, neighborhood, or service…">
     <button>Search NYC</button>
   </div>
 
+  <!-- NYC Skyline -->
+  <div class="hero-skyline-wrap">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 160" preserveAspectRatio="none" style="width:100%;height:160px;display:block;">
+      <g fill="#1E3028">
+        <!-- ground base -->
+        <rect x="0" y="148" width="1440" height="12"/>
+        <!-- left low buildings -->
+        <rect x="0" y="100" width="44" height="52"/>
+        <rect x="40" y="90" width="38" height="62"/>
+        <rect x="48" y="83" width="7" height="9"/><polygon points="45,83 58,83 55,76 51,76"/>
+        <rect x="75" y="105" width="34" height="47"/>
+        <rect x="106" y="93" width="46" height="59"/>
+        <rect x="148" y="80" width="52" height="72"/>
+        <rect x="154" y="69" width="40" height="13"/>
+        <!-- mid-left cluster -->
+        <rect x="196" y="66" width="58" height="86"/>
+        <rect x="202" y="52" width="46" height="16"/>
+        <rect x="210" y="37" width="30" height="17"/>
+        <rect x="217" y="23" width="16" height="15"/>
+        <rect x="250" y="76" width="46" height="76"/>
+        <rect x="292" y="84" width="38" height="68"/>
+        <!-- Empire State Building -->
+        <rect x="326" y="80" width="20" height="72"/>
+        <rect x="344" y="65" width="50" height="87"/>
+        <rect x="350" y="50" width="38" height="17"/>
+        <rect x="356" y="34" width="26" height="18"/>
+        <rect x="362" y="20" width="14" height="16"/>
+        <rect x="366" y="7" width="6" height="15"/>
+        <rect x="367" y="1" width="4" height="8"/>
+        <rect x="392" y="80" width="20" height="72"/>
+        <rect x="414" y="70" width="48" height="82"/>
+        <rect x="458" y="82" width="40" height="70"/>
+        <!-- mid-Manhattan -->
+        <rect x="494" y="62" width="56" height="90"/>
+        <rect x="500" y="49" width="44" height="15"/>
+        <rect x="547" y="74" width="38" height="78"/>
+        <rect x="581" y="86" width="32" height="66"/>
+        <!-- Chrysler Building -->
+        <rect x="609" y="72" width="18" height="80"/>
+        <rect x="625" y="57" width="48" height="95"/>
+        <rect x="631" y="42" width="36" height="17"/>
+        <rect x="637" y="28" width="24" height="16"/>
+        <polygon points="643,28 655,28 653,17 645,17"/>
+        <polygon points="644,17 654,17 651,8 647,8"/>
+        <rect x="648" y="2" width="4" height="8"/>
+        <rect x="671" y="72" width="18" height="80"/>
+        <rect x="690" y="76" width="44" height="76"/>
+        <rect x="730" y="66" width="52" height="86"/>
+        <rect x="778" y="82" width="38" height="70"/>
+        <!-- WTC towers -->
+        <rect x="812" y="28" width="46" height="124"/>
+        <rect x="816" y="15" width="38" height="15"/>
+        <rect x="831" y="4" width="8" height="13"/>
+        <rect x="864" y="40" width="46" height="112"/>
+        <rect x="868" y="27" width="38" height="15"/>
+        <rect x="916" y="62" width="44" height="90"/>
+        <rect x="956" y="74" width="38" height="78"/>
+        <!-- One WTC / modern tower -->
+        <rect x="992" y="20" width="50" height="132"/>
+        <rect x="998" y="7" width="38" height="15"/>
+        <rect x="1004" y="0" width="26" height="9"/>
+        <rect x="1046" y="54" width="46" height="98"/>
+        <rect x="1088" y="68" width="40" height="84"/>
+        <!-- right taper -->
+        <rect x="1126" y="77" width="52" height="75"/>
+        <rect x="1174" y="88" width="44" height="64"/>
+        <rect x="1214" y="96" width="40" height="56"/>
+        <rect x="1222" y="89" width="7" height="9"/><polygon points="1219,89 1232,89 1229,82 1225,82"/>
+        <rect x="1250" y="82" width="48" height="70"/>
+        <rect x="1294" y="92" width="42" height="60"/>
+        <rect x="1332" y="98" width="46" height="54"/>
+        <rect x="1374" y="106" width="70" height="46"/>
+      </g>
+    </svg>
+  </div>
+</section>
+
+<div class="hero-tabs-strip">
   <div class="category-tabs">
     <button class="tab active" onclick="setTab(this, 'all')">
       <span class="tab-icon">⬡</span> All Resources
@@ -1530,7 +1632,7 @@
       <span class="tab-icon">⚖️</span> Legal Aid
     </button>
   </div>
-</section>
+</div>
 
 <!-- STATS -->
 <div class="stats-strip">
@@ -1539,8 +1641,8 @@
     <div class="stat-label">Organizations Listed</div>
   </div>
   <div class="stat">
-    <div class="stat-num">1,840</div>
-    <div class="stat-label">Community Reviews</div>
+    <div class="stat-num">50+</div>
+    <div class="stat-label">Peer-Sourced Insights</div>
   </div>
   <div class="stat">
     <div class="stat-num">5</div>
@@ -2353,8 +2455,8 @@
       <div class="sidebar-card" style="background: var(--charcoal); border-color: transparent;">
         <div style="font-size: 24px; margin-bottom: 12px;">✍️</div>
         <h3 class="sidebar-title" style="color: var(--white);">Know a great org?</h3>
-        <p style="font-size: 14px; color: #6A6A72; margin-bottom: 16px; line-height: 1.6;">Help the community by adding a nonprofit or leaving a review. Your experience matters.</p>
-        <a href="#" class="btn btn-primary" style="background: var(--amber); color: var(--charcoal); width: 100%; justify-content: center;">Submit a Review →</a>
+        <p style="font-size: 14px; color: #6A6A72; margin-bottom: 16px; line-height: 1.6;">Share your experience with a program or org. Peer knowledge is what keeps this guide useful.</p>
+        <a href="#" class="btn btn-primary" style="background: var(--amber); color: var(--charcoal); width: 100%; justify-content: center;">Share Your Experience →</a>
       </div>
 
     </div>
@@ -2462,7 +2564,7 @@
     <div class="footer-top">
       <div>
         <div class="footer-logo">Home<span>Guide</span></div>
-        <p class="footer-about">Honest, community-powered ratings of nonprofits serving formerly incarcerated people across New York City. Built by people who've been through it.</p>
+        <p class="footer-about">A reentry guide to NYC built and maintained by people who've navigated it. Real programs, real paths — updated from the inside as things change.</p>
       </div>
       <div class="footer-col">
         <h4>Resources</h4>
@@ -2475,9 +2577,9 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Community</h4>
+        <h4>Contribute</h4>
         <ul>
-          <li><a href="#">Write a Review</a></li>
+          <li><a href="#">Share Your Story</a></li>
           <li><a href="#">Submit an Org</a></li>
           <li><a href="#">Blog</a></li>
           <li><a href="#">Interviews</a></li>
