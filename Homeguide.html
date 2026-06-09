@@ -857,6 +857,279 @@
     .stats-strip { gap: 24px; }
     .hero h1 { font-size: 38px; }
   }
+
+  /* ── WHAT THEY DON'T TELL YOU ── */
+  .wtdty-section {
+    background: var(--charcoal);
+    padding: 64px 2rem;
+  }
+
+  .wtdty-inner { max-width: 1100px; margin: 0 auto; }
+
+  .wtdty-eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 10px;
+  }
+
+  .wtdty-title {
+    font-family: Georgia, serif;
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+
+  .wtdty-subtitle {
+    color: #A0A0A8;
+    font-size: 14px;
+    max-width: 580px;
+    line-height: 1.7;
+    margin-bottom: 32px;
+  }
+
+  /* program tabs */
+  .prog-tabs {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-bottom: 28px;
+  }
+
+  .prog-tab {
+    padding: 9px 18px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #6A6A72;
+    background: var(--charcoal-mid);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: 'Segoe UI', sans-serif;
+  }
+
+  .prog-tab:hover { color: var(--white); }
+  .prog-tab.active { background: var(--amber); color: var(--charcoal); border-color: var(--amber); font-weight: 600; }
+
+  .prog-panel { display: none; }
+  .prog-panel.active { display: block; }
+
+  /* info cards */
+  .info-card-full {
+    background: var(--charcoal-mid);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px;
+    padding: 24px;
+    margin-bottom: 16px;
+  }
+
+  .info-card-full h4 {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 14px;
+  }
+
+  .info-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  .info-card-half {
+    background: var(--charcoal-mid);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px;
+    padding: 24px;
+  }
+
+  .info-card-half h4 {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 14px;
+  }
+
+  .summary-text {
+    color: #B0B0B8;
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  /* wait badge */
+  .wait-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(232,160,32,0.1);
+    border: 1px solid rgba(232,160,32,0.25);
+    border-radius: 8px;
+    padding: 10px 16px;
+    margin-bottom: 16px;
+  }
+
+  .wait-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--amber);
+  }
+
+  .wait-time {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--white);
+  }
+
+  /* checklist */
+  .checklist {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13px;
+    color: #B0B0B8;
+    line-height: 1.55;
+  }
+
+  .chk {
+    width: 17px;
+    height: 17px;
+    border: 1.5px solid var(--amber);
+    border-radius: 3px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* pros / cons */
+  .pros-cons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+
+  .pros-box {
+    background: rgba(42,74,26,0.3);
+    border: 1px solid rgba(61,107,40,0.4);
+    border-radius: 10px;
+    padding: 16px;
+  }
+
+  .cons-box {
+    background: rgba(192,57,43,0.12);
+    border: 1px solid rgba(192,57,43,0.25);
+    border-radius: 10px;
+    padding: 16px;
+  }
+
+  .pros-box h5 { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #7EC850; margin-bottom: 10px; }
+  .cons-box h5 { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #E07060; margin-bottom: 10px; }
+
+  .pros-box ul, .cons-box ul { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+
+  .pros-box li, .cons-box li {
+    font-size: 12px;
+    color: #B0B0B8;
+    line-height: 1.5;
+    padding-left: 16px;
+    position: relative;
+  }
+
+  .pros-box li::before { content: '✓'; position: absolute; left: 0; color: #7EC850; font-weight: 700; }
+  .cons-box li::before { content: '✗'; position: absolute; left: 0; color: #E07060; font-weight: 700; }
+
+  /* sub-tabs (Housing Connect) */
+  .sub-tabs {
+    display: flex;
+    gap: 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    margin-bottom: 24px;
+  }
+
+  .sub-tab {
+    padding: 10px 20px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #6A6A72;
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-bottom: -1px;
+    font-family: 'Segoe UI', sans-serif;
+  }
+
+  .sub-tab:hover { color: var(--white); }
+  .sub-tab.active { color: var(--amber); border-bottom-color: var(--amber); }
+
+  .sub-panel { display: none; }
+  .sub-panel.active { display: block; }
+
+  /* steps */
+  .steps { display: flex; flex-direction: column; gap: 16px; }
+
+  .step { display: flex; gap: 16px; align-items: flex-start; }
+
+  .step-num {
+    width: 32px;
+    height: 32px;
+    background: var(--amber);
+    color: var(--charcoal);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 13px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .step-content h5 { font-size: 14px; font-weight: 600; color: var(--white); margin-bottom: 3px; }
+  .step-content p { font-size: 13px; color: #A0A0A8; line-height: 1.65; }
+
+  /* diff cards */
+  .diff-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-top: 16px;
+  }
+
+  .diff-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 18px;
+  }
+
+  .diff-card.hl { border-color: rgba(232,160,32,0.35); background: rgba(232,160,32,0.06); }
+
+  .diff-card h5 { font-size: 13px; font-weight: 700; color: var(--amber); margin-bottom: 10px; }
+  .diff-card p { font-size: 12px; color: #A0A0A8; line-height: 1.7; }
+
+  @media (max-width: 900px) {
+    .info-grid-2 { grid-template-columns: 1fr; }
+    .diff-grid { grid-template-columns: 1fr; }
+    .pros-cons { grid-template-columns: 1fr; }
+  }
 </style>
 </head>
 <body>
@@ -1196,6 +1469,411 @@
   </div>
 </div>
 
+<!-- WHAT THEY DON'T TELL YOU -->
+<section class="wtdty-section">
+  <div class="wtdty-inner">
+    <div class="wtdty-eyebrow">Housing Resources · Inside Knowledge</div>
+    <div class="wtdty-title">What They Don't Tell You</div>
+    <p class="wtdty-subtitle">A plain-language breakdown of NYC's main housing programs for returning citizens — what they are, what you need, how long it takes, and what to watch out for.</p>
+
+    <div class="prog-tabs">
+      <button class="prog-tab active" onclick="setProgTab(this,'2010e')">2010e Supportive Housing</button>
+      <button class="prog-tab" onclick="setProgTab(this,'fheps')">FHEPS Voucher</button>
+      <button class="prog-tab" onclick="setProgTab(this,'subsidized')">Subsidized Housing</button>
+      <button class="prog-tab" onclick="setProgTab(this,'connect')">Housing Connect</button>
+    </div>
+
+    <!-- ── 2010E PANEL ── -->
+    <div class="prog-panel active" id="prog-2010e">
+
+      <div class="info-card-full">
+        <h4>What Is It?</h4>
+        <p class="summary-text">The <strong style="color:var(--white)">2010e</strong> is a New York City supportive housing program funded through HRA (Human Resources Administration). It provides <em>permanent, affordable apartments</em> with on-site support services for people with serious mental illness, substance use disorders, HIV/AIDS, or other qualifying disabilities who are experiencing homelessness. Rent is capped at 30% of your income — meaning if you're on SSI or have no income, you could pay as little as $0–$50/month. Unlike a voucher, the 2010e is tied to a specific building. You live there and services come to you.</p>
+      </div>
+
+      <div class="info-grid-2">
+        <div class="info-card-half">
+          <h4>Requirements Checklist</h4>
+          <ul class="checklist">
+            <li><span class="chk"></span>NYC resident (or entering NYC upon release)</li>
+            <li><span class="chk"></span>Currently homeless — in a shelter, on the street, or recently released from incarceration or a hospital</li>
+            <li><span class="chk"></span>Documented qualifying disability: mental health diagnosis, substance use disorder, HIV/AIDS, or other</li>
+            <li><span class="chk"></span>HRA or DHS referral — you cannot apply directly; you must go through an agency</li>
+            <li><span class="chk"></span>Income at or below 200% of the Federal Poverty Level (no minimum income required)</li>
+            <li><span class="chk"></span>Willingness to engage with on-site support services</li>
+            <li><span class="chk"></span>No active sex offense registration that would prohibit placement (case-by-case basis)</li>
+          </ul>
+        </div>
+
+        <div class="info-card-half">
+          <div class="wait-badge">
+            <span class="wait-label">⏱ Estimated Wait</span>
+            <span class="wait-time">6 months – 3+ years</span>
+          </div>
+          <p class="summary-text" style="margin-bottom:16px;font-size:13px;">Wait time depends heavily on your borough, the specific program, your disability category, and how quickly HRA processes your referral. People coming directly out of incarceration may be prioritized through DHS.</p>
+          <div class="pros-cons">
+            <div class="pros-box">
+              <h5>Pros</h5>
+              <ul>
+                <li>Permanent housing — not temporary</li>
+                <li>Extremely low rent (30% of income)</li>
+                <li>On-site services: case management, counseling, life skills</li>
+                <li>No job required to qualify</li>
+                <li>Stability from day one</li>
+              </ul>
+            </div>
+            <div class="cons-box">
+              <h5>Cons</h5>
+              <ul>
+                <li>Long waitlist — no guarantees</li>
+                <li>Must go through HRA — no direct applications</li>
+                <li>Tied to one specific building/location</li>
+                <li>Services can feel mandatory</li>
+                <li>Limited in certain boroughs</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-card-full" style="border-color:rgba(232,160,32,0.2);">
+        <h4>How to Get Referred</h4>
+        <p class="summary-text">You cannot walk in and apply for a 2010e — you need a referral. If you're coming out of Rikers or a state facility, ask your discharge planner or social worker to submit an HRA referral before you leave. If you're already out and in a shelter, talk to your case manager at the shelter. Nonprofits like The Fortune Society and Exodus Transitional Community can also help connect you to referral pathways.</p>
+      </div>
+    </div>
+
+    <!-- ── FHEPS PANEL ── -->
+    <div class="prog-panel" id="prog-fheps">
+
+      <div class="info-card-full">
+        <h4>What Is It?</h4>
+        <p class="summary-text">The <strong style="color:var(--white)">FHEPS (Family Homelessness & Eviction Prevention Supplement)</strong> is a rental voucher issued by HRA. Unlike the 2010e (which is tied to a building), FHEPS is a voucher you bring to a private landlord anywhere in New York City. The voucher pays the difference between 30% of your income and NYC's set rent cap. If you're on public assistance with no income, FHEPS can cover the full rent up to the cap. It replaced older programs like LINC and CityFHEPS has since expanded coverage.</p>
+      </div>
+
+      <div class="info-grid-2">
+        <div class="info-card-half">
+          <h4>Requirements Checklist</h4>
+          <ul class="checklist">
+            <li><span class="chk"></span>NYC resident</li>
+            <li><span class="chk"></span>Currently in a DHS or HRA shelter — OR — received a marshal's notice of eviction</li>
+            <li><span class="chk"></span>Have a qualifying source of income: public assistance, SSI, SSDI, or employment</li>
+            <li><span class="chk"></span>Household income within HRA's limits (varies by household size)</li>
+            <li><span class="chk"></span>Pass HRA eligibility screening</li>
+            <li><span class="chk"></span>Actively searching for housing and providing documentation to HRA</li>
+            <li><span class="chk"></span>Find a landlord willing to accept FHEPS (legally required, but enforcement varies)</li>
+            <li><span class="chk"></span>Apartment must pass HRA inspection</li>
+          </ul>
+        </div>
+
+        <div class="info-card-half">
+          <div class="wait-badge">
+            <span class="wait-label">⏱ Estimated Wait</span>
+            <span class="wait-time">4–12 months for voucher + 3–6 months to find an apartment</span>
+          </div>
+          <p class="summary-text" style="margin-bottom:16px;font-size:13px;">Getting the voucher approved through HRA takes 4–12 months from shelter entry. Once you have the voucher, finding a landlord who accepts it in NYC's tight market can add another 3–6 months. Total: plan for up to 18 months from shelter to keys.</p>
+          <div class="pros-cons">
+            <div class="pros-box">
+              <h5>Pros</h5>
+              <ul>
+                <li>Use it in any NYC neighborhood</li>
+                <li>More housing choices than a fixed building</li>
+                <li>Not tied to mandatory services</li>
+                <li>Can cover full rent if income is very low</li>
+                <li>Works for families and single adults</li>
+              </ul>
+            </div>
+            <div class="cons-box">
+              <h5>Cons</h5>
+              <ul>
+                <li>Many landlords illegally refuse it</li>
+                <li>Rent caps may be below market rate</li>
+                <li>Requires active income to qualify</li>
+                <li>HRA process is slow and paperwork-heavy</li>
+                <li>Voucher can expire if not used in time</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-card-full" style="border-color:rgba(232,160,32,0.2);">
+        <h4>Know Your Rights</h4>
+        <p class="summary-text">In NYC, it is <strong style="color:var(--white)">illegal for a landlord to refuse FHEPS</strong> based on your source of income. This is protected under the NYC Human Rights Law. If a landlord turns you down because of the voucher, you can file a complaint with the NYC Commission on Human Rights. Organizations like Legal Aid Society and The Legal Action Center can help you enforce this right at no cost.</p>
+      </div>
+    </div>
+
+    <!-- ── SUBSIDIZED HOUSING PANEL ── -->
+    <div class="prog-panel" id="prog-subsidized">
+
+      <div class="info-card-full">
+        <h4>What Is Subsidized Housing?</h4>
+        <p class="summary-text"><strong style="color:var(--white)">Subsidized housing</strong> is a broad term for any housing where the government pays part of your rent to make it affordable. It includes NYCHA (public housing), Section 8/Housing Choice Vouchers, affordable housing lottery units, and Mitchell-Lama buildings. There are no required on-site services — you're just a tenant paying below-market rent. It's the most common form of affordable housing in NYC, but it's also the most competitive to get into.</p>
+      </div>
+
+      <div class="info-card-full">
+        <h4>How Is It Different From 2010e and FHEPS?</h4>
+        <div class="diff-grid">
+          <div class="diff-card hl">
+            <h5>Subsidized Housing</h5>
+            <p>Broad category. Government reduces your rent. Includes lotteries, NYCHA, Mitchell-Lama. No required services. Open to low-to-moderate income households. You apply directly.</p>
+          </div>
+          <div class="diff-card">
+            <h5>2010e Supportive Housing</h5>
+            <p>A specific type of subsidized housing for people with disabilities. Comes with mandatory on-site services (case management, counseling). Must go through HRA referral. Targets the most vulnerable.</p>
+          </div>
+          <div class="diff-card">
+            <h5>FHEPS Voucher</h5>
+            <p>Not a building — it's a payment voucher. You bring it to a private landlord. Covers part or all of your rent. For people who are homeless or facing eviction. Requires active income.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-grid-2">
+        <div class="info-card-half">
+          <h4>Requirements Checklist</h4>
+          <ul class="checklist">
+            <li><span class="chk"></span>NYC resident</li>
+            <li><span class="chk"></span>Household income within the development's AMI limits (usually 30%–80% of Area Median Income)</li>
+            <li><span class="chk"></span>Valid ID and Social Security Number</li>
+            <li><span class="chk"></span>Rental history (some programs check; some do not)</li>
+            <li><span class="chk"></span>Criminal background check — policies vary by program and building</li>
+            <li><span class="chk"></span>Application through Housing Connect or specific building waitlist</li>
+            <li><span class="chk"></span>Patience — waitlists can be years long</li>
+          </ul>
+        </div>
+
+        <div class="info-card-half">
+          <div class="wait-badge">
+            <span class="wait-label">⏱ Estimated Wait</span>
+            <span class="wait-time">1 year – 10+ years depending on program</span>
+          </div>
+          <p class="summary-text" style="margin-bottom:16px;font-size:13px;">Affordable housing lottery: 1–5 years after winning. NYCHA public housing: 3–8+ years. Mitchell-Lama: varies by building, some 5–10+ years. Apply to everything at once and keep all records.</p>
+          <div class="pros-cons">
+            <div class="pros-box">
+              <h5>Pros</h5>
+              <ul>
+                <li>No required services — just a tenant</li>
+                <li>Wide range of neighborhoods and buildings</li>
+                <li>Stable, long-term affordability</li>
+                <li>Multiple programs to apply to simultaneously</li>
+                <li>Some programs have looser criminal history rules</li>
+              </ul>
+            </div>
+            <div class="cons-box">
+              <h5>Cons</h5>
+              <ul>
+                <li>Extremely long waitlists</li>
+                <li>Highly competitive — thousands apply</li>
+                <li>Criminal record can disqualify from some programs</li>
+                <li>Income limits mean it's easy to earn "too much"</li>
+                <li>No guaranteed placement even after years of waiting</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── HOUSING CONNECT PANEL ── -->
+    <div class="prog-panel" id="prog-connect">
+
+      <div class="info-card-full">
+        <h4>What Is Housing Connect?</h4>
+        <p class="summary-text"><strong style="color:var(--white)">Housing Connect</strong> is NYC's free, official online platform for affordable housing lotteries and waitlists. It's run by the NYC Department of Housing Preservation & Development (HPD). When a new affordable building opens up, they post the lottery on Housing Connect. Anyone can apply — it's free, and you can apply to as many open lotteries as you qualify for. Creating an account takes about 10 minutes.</p>
+      </div>
+
+      <div class="sub-tabs">
+        <button class="sub-tab active" onclick="setSubTab(this,'overview')">How to Sign Up</button>
+        <button class="sub-tab" onclick="setSubTab(this,'mitchell')">Mitchell-Lama Housing</button>
+        <button class="sub-tab" onclick="setSubTab(this,'lottery')">The Lottery</button>
+      </div>
+
+      <!-- Overview sub-panel -->
+      <div class="sub-panel active" id="sub-overview">
+        <div class="info-card-full">
+          <h4>Step-by-Step: Setting Up Your Housing Connect Account</h4>
+          <div class="steps">
+            <div class="step">
+              <div class="step-num">1</div>
+              <div class="step-content">
+                <h5>Go to housingconnect.nyc.gov</h5>
+                <p>Open Chrome and go to the official NYC site. Click "Sign Up" in the top right. It's completely free — you will never be asked to pay.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">2</div>
+              <div class="step-content">
+                <h5>Create your account</h5>
+                <p>Enter your email address and create a password. Verify your email when you get the confirmation link.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">3</div>
+              <div class="step-content">
+                <h5>Fill out your household profile</h5>
+                <p>Enter your household size, total annual income, and whether anyone in your household has a disability. This information determines which lotteries you're eligible for. Be accurate — you'll need to verify this later with documents.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">4</div>
+              <div class="step-content">
+                <h5>Browse open lotteries</h5>
+                <p>Go to "Find a Home" to see all currently open applications. Filter by borough, bedroom size, and income level. Each listing shows income requirements and the application deadline.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">5</div>
+              <div class="step-content">
+                <h5>Apply to everything you qualify for</h5>
+                <p>There's no penalty for applying to multiple lotteries at once. Apply to as many as you're eligible for. Each application takes about 2 minutes once your profile is set up.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">6</div>
+              <div class="step-content">
+                <h5>Check your status and keep your profile updated</h5>
+                <p>Log in regularly to check your lottery status. If your income or household size changes, update your profile immediately — outdated info can disqualify you even after you win.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mitchell-Lama sub-panel -->
+      <div class="sub-panel" id="sub-mitchell">
+        <div class="info-card-full">
+          <h4>What Is Mitchell-Lama?</h4>
+          <p class="summary-text" style="margin-bottom:16px;">Mitchell-Lama is a state and city-supervised affordable housing program created in the 1950s to build middle-income housing across New York. Buildings in the program are limited-profit — the landlord can't charge whatever the market will bear. Rents and co-op prices are set by the government and are significantly below market rate. There are about 100 Mitchell-Lama developments still in the program across the five boroughs, ranging from large towers to smaller buildings.</p>
+          <p class="summary-text">Unlike the lottery, Mitchell-Lama buildings each have their <strong style="color:var(--white)">own individual waitlists</strong>. You apply directly to each building, not through a central lottery. Some waitlists have been open for years; others open and close. Many are managed through a separate site called <strong style="color:var(--white)">NYC Mitchell-Lama Connect</strong>.</p>
+        </div>
+
+        <div class="info-grid-2">
+          <div class="info-card-half">
+            <h4>How to Apply</h4>
+            <ul class="checklist">
+              <li><span class="chk"></span>Go to Mitchell-Lama Connect (nyc.gov/mlc) to see which buildings have open waitlists</li>
+              <li><span class="chk"></span>Each building has its own income limits and household size requirements</li>
+              <li><span class="chk"></span>Fill out the application for each building separately</li>
+              <li><span class="chk"></span>There is usually a small application fee ($25–$75) per building</li>
+              <li><span class="chk"></span>Keep copies of all applications and confirmation numbers</li>
+              <li><span class="chk"></span>Update your contact information with each building if you move</li>
+            </ul>
+          </div>
+
+          <div class="info-card-half">
+            <div class="wait-badge">
+              <span class="wait-label">⏱ Estimated Wait</span>
+              <span class="wait-time">3 – 10+ years per building</span>
+            </div>
+            <div class="pros-cons">
+              <div class="pros-box">
+                <h5>Pros</h5>
+                <ul>
+                  <li>Significantly below-market rents</li>
+                  <li>Stable, long-term housing</li>
+                  <li>No mandatory services</li>
+                  <li>Some buildings in desirable neighborhoods</li>
+                </ul>
+              </div>
+              <div class="cons-box">
+                <h5>Cons</h5>
+                <ul>
+                  <li>Very long waitlists</li>
+                  <li>Must apply per building — time consuming</li>
+                  <li>Small application fees add up</li>
+                  <li>Some buildings leave the program over time</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lottery sub-panel -->
+      <div class="sub-panel" id="sub-lottery">
+        <div class="info-card-full">
+          <h4>How the Affordable Housing Lottery Works</h4>
+          <p class="summary-text" style="margin-bottom:16px;">When a developer builds new housing using government subsidies (tax credits, city land, etc.), they are required to set aside a percentage of units as affordable. These units are offered through a public lottery on Housing Connect. Anyone who meets the income requirements can apply. Entries are selected <strong style="color:var(--white)">randomly by computer</strong> — there's no benefit to applying early, and applying multiple times to the same lottery won't help. The key is applying to as many lotteries as possible.</p>
+          <p class="summary-text">Income is measured as a percentage of <strong style="color:var(--white)">AMI (Area Median Income)</strong>. Each lottery lists the AMI range for each unit — for example, "50% AMI, 2-bedroom." If your household income falls in that range, you're eligible to apply.</p>
+        </div>
+
+        <div class="info-grid-2">
+          <div class="info-card-half">
+            <h4>What Happens After You Win</h4>
+            <div class="steps">
+              <div class="step">
+                <div class="step-num">1</div>
+                <div class="step-content">
+                  <h5>You get a log number</h5>
+                  <p>All applicants get a randomly assigned log number. Lower numbers get called first.</p>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-num">2</div>
+                <div class="step-content">
+                  <h5>You're contacted for an interview</h5>
+                  <p>When a unit becomes available for your log number, the building contacts you. This can take months or years.</p>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-num">3</div>
+                <div class="step-content">
+                  <h5>Income and document verification</h5>
+                  <p>You'll need pay stubs, tax returns, bank statements, and ID. Not everyone who wins passes verification.</p>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-num">4</div>
+                <div class="step-content">
+                  <h5>Background check</h5>
+                  <p>Buildings conduct criminal background checks. Policies vary — some buildings have stricter rules than others. NYC law limits how far back they can look.</p>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-num">5</div>
+                <div class="step-content">
+                  <h5>Move in</h5>
+                  <p>If approved, you sign a lease and move in at the affordable rent. Keep your Housing Connect profile updated so you don't miss a call.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="info-card-half">
+            <div class="wait-badge">
+              <span class="wait-label">⏱ Estimated Wait</span>
+              <span class="wait-time">1 – 5+ years after applying</span>
+            </div>
+            <div class="pros-cons">
+              <div class="pros-box">
+                <h5>Pros</h5>
+                <ul>
+                  <li>Free to apply — no cost at all</li>
+                  <li>New buildings, modern amenities</li>
+                  <li>All NYC boroughs and neighborhoods</li>
+                  <li>No required services</li>
+                  <li>Can apply to unlimited lotteries</li>
+                </ul>
+              </div>
+              <div class="cons-box">
+                <h5>Cons</h5>
+                <ul>
+                  <li>Highly competitive — thousands apply per unit</li>
+                  <li>Winning the lottery doesn't guarantee an apartment</li>
+                  <li>Criminal record can disqualify at background check</li>
+                  <li>Must keep profile updated or lose your place</li>
+                  <li>Long wait even after being selected</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- end Housing Connect panel -->
+  </div>
+</section>
+
 <!-- INTERVIEWS SECTION -->
 <section class="interviews-section">
   <div class="interviews-inner">
@@ -1291,6 +1969,21 @@
   function setTab(el, category) {
     document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
     el.classList.add('active');
+  }
+
+  function setProgTab(el, id) {
+    document.querySelectorAll('.prog-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.prog-panel').forEach(p => p.classList.remove('active'));
+    el.classList.add('active');
+    document.getElementById('prog-' + id).classList.add('active');
+  }
+
+  function setSubTab(el, id) {
+    const section = el.closest('.prog-panel');
+    section.querySelectorAll('.sub-tab').forEach(t => t.classList.remove('active'));
+    section.querySelectorAll('.sub-panel').forEach(p => p.classList.remove('active'));
+    el.classList.add('active');
+    document.getElementById('sub-' + id).classList.add('active');
   }
 
   document.querySelectorAll('.pill').forEach(pill => {
