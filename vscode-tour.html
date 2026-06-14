@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VS Code Tour — Beginner's Guide</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #1e1e2e;
+      color: #cdd6f4;
+      min-height: 100vh;
+    }
+
+    header {
+      background: #181825;
+      border-bottom: 2px solid #89b4fa;
+      padding: 2rem;
+      text-align: center;
+    }
+    header h1 { font-size: 2.2rem; color: #89b4fa; }
+    header p  { margin-top: 0.5rem; font-size: 1.1rem; color: #a6adc8; }
+
+    .intro {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 1.5rem 2rem;
+      background: #313244;
+      border-radius: 12px;
+      border-left: 4px solid #a6e3a1;
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+    .intro strong { color: #a6e3a1; }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      justify-content: center;
+      padding: 1.5rem 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    nav button {
+      background: #313244;
+      color: #cdd6f4;
+      border: 1px solid #45475a;
+      border-radius: 8px;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      font-size: 0.95rem;
+      transition: all 0.2s;
+    }
+    nav button:hover,
+    nav button.active {
+      background: #89b4fa;
+      color: #1e1e2e;
+      border-color: #89b4fa;
+      font-weight: bold;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1rem 2rem 4rem;
+    }
+
+    .card {
+      background: #313244;
+      border-radius: 12px;
+      border: 1px solid #45475a;
+      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: none;
+    }
+    .card.visible {
+      display: flex;
+      flex-direction: column;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+    }
+
+    .card-header {
+      padding: 1.2rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .card-icon { font-size: 1.8rem; }
+    .card-title { font-size: 1.15rem; font-weight: bold; }
+    .card-shortcut {
+      margin-left: auto;
+      background: #1e1e2e;
+      border-radius: 6px;
+      padding: 0.2rem 0.6rem;
+      font-family: monospace;
+      font-size: 0.8rem;
+      color: #f9e2af;
+      white-space: nowrap;
+    }
+
+    .card-body {
+      padding: 0 1.5rem 1.5rem;
+      line-height: 1.65;
+      color: #bac2de;
+      font-size: 0.97rem;
+      flex: 1;
+    }
+
+    .card-tip {
+      margin: 1rem 1.5rem;
+      padding: 0.8rem 1rem;
+      background: #1e1e2e;
+      border-radius: 8px;
+      border-left: 3px solid #f38ba8;
+      font-size: 0.88rem;
+      color: #f38ba8;
+    }
+    .card-tip::before { content: "💡 Try it: "; font-weight: bold; }
+
+    .tag {
+      display: inline-block;
+      margin: 0.8rem 1.5rem 0;
+      padding: 0.2rem 0.7rem;
+      border-radius: 99px;
+      font-size: 0.75rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .tag-essential { background: #a6e3a1; color: #1e1e2e; }
+    .tag-productivity { background: #89b4fa; color: #1e1e2e; }
+    .tag-advanced { background: #cba6f7; color: #1e1e2e; }
+
+    .mock-ui {
+      margin: 1rem 1.5rem 0;
+      background: #1e1e2e;
+      border-radius: 8px;
+      padding: 0.8rem 1rem;
+      font-family: monospace;
+      font-size: 0.85rem;
+      line-height: 1.6;
+      border: 1px solid #45475a;
+    }
+    .mock-ui .dim  { color: #585b70; }
+    .mock-ui .blue { color: #89b4fa; }
+    .mock-ui .grn  { color: #a6e3a1; }
+    .mock-ui .yel  { color: #f9e2af; }
+    .mock-ui .red  { color: #f38ba8; }
+    .mock-ui .pur  { color: #cba6f7; }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: #585b70;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>🖥️ VS Code — Beginner's Tour</h1>
+  <p>Click a category below to explore the tools of Visual Studio Code</p>
+</header>
+
+<div class="intro">
+  <strong>What is VS Code?</strong><br>
+  Visual Studio Code (VS Code) is a free code editor made by Microsoft. Think of it like Microsoft Word — but instead of writing essays, you write code. It comes packed with powerful tools that help you write, organize, run, and fix code. It works with almost every programming language and is used by millions of developers worldwide.
+</div>
+
+<nav>
+  <button class="active" onclick="filter('all', this)">🗂 Show All</button>
+  <button onclick="filter('essential', this)">🟢 Essential</button>
+  <button onclick="filter('productivity', this)">🔵 Productivity</button>
+  <button onclick="filter('advanced', this)">🟣 Advanced</button>
+</nav>
+
+<div class="cards">
+
+  <!-- 1. File Explorer -->
+  <div class="card visible" data-tag="essential">
+    <span class="tag tag-essential">Essential</span>
+    <div class="card-header">
+      <span class="card-icon">📁</span>
+      <span class="card-title">File Explorer</span>
+      <span class="card-shortcut">Ctrl+Shift+E</span>
+    </div>
+    <div class="mock-ui">
+      <span class="blue">EXPLORER</span><br>
+      <span class="dim">▾</span> <span class="grn">my-project/</span><br>
+      &nbsp;&nbsp;<span class="dim">▾</span> src/<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;📄 <span class="yel">index.html</span><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;📄 style.css<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;📄 app.js<br>
+      &nbsp;&nbsp;📄 README.md
+    </div>
+    <div class="card-body" style="margin-top:1rem">
+      The left sidebar shows all the files and folders in your project — like a file cabinet. Click a file to open it in the editor. Right-click to create, rename, or delete files.
+    </div>
+    <div class="card-tip">Press <strong>Ctrl+Shift+E</strong> to open the Explorer panel</div>
+  </div>
+
+  <!-- 2. Editor -->
+  <div class="card visible" data-tag="essential">
+    <span class="tag tag-essential">Essential</span>
+    <div class="card-header">
+      <span class="card-icon">✏️</span>
+      <span class="card-title">Code Editor</span>
+      <span class="card-shortcut">The big center area</span>
+    </div>
+    <div class="mock-ui">
+      <span class="dim"> 1 </span><span class="pur">function</span> <span class="blue">greet</span>() {<br>
+      <span class="dim"> 2 </span>&nbsp;&nbsp;<span class="pur">let</span> name = <span class="grn">"World"</span>;<br>
+      <span class="dim"> 3 </span>&nbsp;&nbsp;console.<span class="blue">log</span>(<span class="grn">"Hello, "</span> + name);<br>
+      <span class="dim"> 4 </span>}<br>
+      <span class="dim"> 5 </span>
+    </div>
+    <div class="card-body" style="margin-top:1rem">
+      The big area in the middle is where you write your code. VS Code colors your code automatically (called <em>syntax highlighting</em>) so it's easier to read. Line numbers appear on the left.
+    </div>
+    <div class="card-tip">Click any file in the Explorer to open it here for editing</div>
+  </div>
+
+  <!-- 3. Terminal -->
+  <div class="card visible" data-tag="essential">
+    <span class="tag tag-essential">Essential</span>
+    <div class="card-header">
+      <span class="card-icon">🖥️</span>
+      <span class="card-title">Integrated Terminal</span>
+      <span class="card-shortcut">Ctrl+`</span>
+    </div>
+    <div class="mock-ui">
+      <span class="grn">user@computer</span>:<span class="blue">~/my-project</span>$ python3 app.py<br>
+      Hello, World!<br>
+      <span class="grn">user@computer</span>:<span class="blue">~/my-project</span>$ <span class="dim">▌</span>
+    </div>
+    <div class="card-body" style="margin-top:1rem">
+      A built-in command line inside VS Code. You use it to run your programs, install packages, and talk to your computer directly. No need to open a separate terminal app.
+    </div>
+    <div class="card-tip">Press <strong>Ctrl+`</strong> (backtick key, top-left of keyboard) to open it</div>
+  </div>
+
+  <!-- 4. IntelliSense -->
+  <div class="card visible" data-tag="productivity">
+    <span class="tag tag-productivity">Productivity</span>
+    <div class="card-header">
+      <span class="card-icon">🧠</span>
+      <span class="card-title">IntelliSense (Autocomplete)</span>
+      <span class="card-shortcut">Ctrl+Space</span>
+    </div>
+    <div class="mock-ui">
+      console.<br>
+      <span style="background:#313244;padding:0 0.3rem;border-radius:4px">
+        <span class="blue">● log</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="dim">function</span><br>
+        <span class="dim">● warn</span>&nbsp;&nbsp;&nbsp;<span class="dim">function</span><br>
+        <span class="dim">● error</span>&nbsp;&nbsp;<span class="dim">function</span><br>
+        <span class="dim">● clear</span>&nbsp;&nbsp;<span class="dim">function</span>
+      </span>
+    </div>
+    <div class="card-body" style="margin-top:1rem">
+      As you type, VS Code suggests what you might want to write next. It's like autocomplete on your phone but for code. Press <strong>Enter</strong> or <strong>Tab</strong> to accept a suggestion.
+    </div>
+    <div class="card-tip">Start typing a word in the editor and watch suggestions appear automatically</div>
+  </div>
+
+  <!-- 5. Command Palette -->
+  <div class="card visible" data-tag="productivity">
+    <span class="tag tag-productivity">Productivity</span>
+    <div class="card-header">
+      <span class="card-icon">🔍</span>
+      <span class="card-title">Command Palette</span>
+      <span class="card-shortcut">Ctrl+Shift+P</span>
+    </div>
+    <div class="mock-ui">
+      <span class="blue">&gt;</span> <span class="yel">format document</span><br>
+      <br>
+      <span class="dim">Format Document</span><br>
+      <span class="dim">Format Document With...</span><br>
+      <span class="dim">Format Selection</span>
+    </div>
+    <div class="card-body" style="margin-top:1rem">
+      The "Google search" for VS Code features. Press the shortcut and type anything — open files, change settings, run commands, install themes. If you can't find something, search here first.
+    </div>
+    <div class="card-tip">Press <strong>Ctrl+Shift+P</strong> and type "theme" to change your color theme</div>
+  </div>
+
+  <!-- 6. Extensions -->
+  <div class="card visible" data-tag="productivity">
+    <span class="tag tag-productivity">Productivity</span>
+    <div class="card-header">
+      <span class="card-icon">🧩</span>
+      <span class="card-title">Extensions Marketplace</span>
+      <span class="card-shortcut">Ctrl+Shift+X</span>
+    </div>
+    <div class="mock-ui">
+      <span class="blue">EXTENSIONS: MARKETPLACE</span><br>
+      <br>
+      <span class="grn">★</span> Prettier — Code formatter<br>
+      <span class="grn">★</span> Python<br>
+      <span class="grn">★</span> GitLens<br>
+      <span class="grn">★</span> Live Server
+    </div>
+    <div class="card-body" style="margin-top:1rem">
+      Add-ons that give VS Code superpowers. Like apps on your phone. There are extensions for Python, web development, spell checking, themes, and thousands more — all free.
+    </div>
+    <div class="card-tip">Press <strong>Ctrl+Shift+X</strong> and search "Prettier" — it auto-formats your code</div>
+  </div>
+
+  <!-- 7. Source Control (Git) -->
+  <div class="card visible" data-tag="productivity">
+    <span class="tag tag-productivity">Productivity</span>
+    <div class="card-header">
+      <span class="card-icon">🌿</span>
+      <span class="card-title">Source Control (Git)</span>
+      <span class="card-shortcut">Ctrl+Shift+G</span>
+    </div>
+    <div class="mock-ui">
+      <span class="blue">SOURCE CONTROL</span><br>
+      <br>
+      <span class="yel">M</span> index.html<br>
+      <span class="grn">A</span> style.css<br>
+      <span class="red">D</span> old-file.js
+    </div>
+    <div class="card-body" style="margin-top:1rem">
+      Tracks every change you make to your code over time — like "undo" on steroids. You can save snapshots (called <em>commits</em>), go back in time, and collaborate with others without losing work.
+    </div>
+    <div class="card-tip">M = Modified, A = Added, D = Deleted — VS Code shows what changed</div>
+  </div>
+
+  <!-- 8. Debugger -->
+  <div class="card visible" data-tag="advanced">
+    <span class="tag tag-advanced">Advanced</span>
+    <div class="card-header">
+      <span class="card-icon">🐛</span>
+      <span class="card-title">Debugger</span>
+      <span class="card-shortcut">F5</span>
+    </div>
+    <div class="mock-ui">
+      <span class="dim"> 4 </span>&nbsp;&nbsp;<span class="pur">let</span> x = 10;<br>
+      <span style="background:#3b0f0f"> <span class="red">●</span><span class="dim"> 5 </span>&nbsp;&nbsp;<span class="pur">let</span> y = x * 2;</span><br>
+      <span class="dim"> 6 </span>&nbsp;&nbsp;console.<span class="blue">log</span>(y);<br>
+      <br>
+      <span class="dim">VARIABLES: x = 10, y = 20</span>
+    </div>
+    <div class="card-body" style="margin-top:1rem">
+      When your code has a bug (an error), the debugger helps you find it. You can pause your program at any line (called a <em>breakpoint</em>) and inspect what every variable's value is at that exact moment.
+    </div>
+    <div class="card-tip">Click the red dot (●) area to the left of a line number to set a breakpoint</div>
+  </div>
+
+  <!-- 9. Problems Panel -->
+  <div class="card visible" data-tag="advanced">
+    <span class="tag tag-advanced">Advanced</span>
+    <div class="card-header">
+      <span class="card-icon">⚠️</span>
+      <span class="card-title">Problems Panel</span>
+      <span class="card-shortcut">Ctrl+Shift+M</span>
+    </div>
+    <div class="mock-ui">
+      <span class="blue">PROBLEMS</span> &nbsp;<span class="red">⛔ 2</span> &nbsp;<span class="yel">⚠ 1</span><br>
+      <br>
+      <span class="red">⛔</span> app.js — Missing semicolon (line 3)<br>
+      <span class="red">⛔</span> app.js — 'x' is not defined (line 7)<br>
+      <span class="yel">⚠</span> style.css — Unknown property (line 12)
+    </div>
+    <div class="card-body" style="margin-top:1rem">
+      A running list of errors (red) and warnings (yellow) in your code. VS Code catches many mistakes automatically before you even run your program — like a spell checker but for code.
+    </div>
+    <div class="card-tip">Press <strong>Ctrl+Shift+M</strong> to see all current problems in your project</div>
+  </div>
+
+  <!-- 10. Split Editor -->
+  <div class="card visible" data-tag="advanced">
+    <span class="tag tag-advanced">Advanced</span>
+    <div class="card-header">
+      <span class="card-icon">⬜⬜</span>
+      <span class="card-title">Split Editor</span>
+      <span class="card-shortcut">Ctrl+\</span>
+    </div>
+    <div class="mock-ui">
+      <span class="dim">┌──────────────┬──────────────┐</span><br>
+      <span class="dim">│</span> <span class="yel">index.html</span> &nbsp;&nbsp;<span class="dim">│</span> <span class="blue">style.css</span> &nbsp;&nbsp;&nbsp;<span class="dim">│</span><br>
+      <span class="dim">│</span> &lt;html&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="dim">│</span> body {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="dim">│</span><br>
+      <span class="dim">│</span> &nbsp;&nbsp;&lt;body&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="dim">│</span> &nbsp;&nbsp;color:red;&nbsp;<span class="dim">│</span><br>
+      <span class="dim">│</span> &nbsp;&nbsp;&lt;/body&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="dim">│</span> }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="dim">│</span><br>
+      <span class="dim">└──────────────┴──────────────┘</span>
+    </div>
+    <div class="card-body" style="margin-top:1rem">
+      View two files side by side at once. Super useful when you're working on a webpage and want to see your HTML and CSS at the same time — no more clicking back and forth.
+    </div>
+    <div class="card-tip">Press <strong>Ctrl+\</strong> to split the current editor, then open a second file</div>
+  </div>
+
+</div>
+
+<footer>
+  Built with ❤️ to help you learn VS Code · Open this file in VS Code and look around — you're already using these tools!
+</footer>
+
+<script>
+  function filter(tag, btn) {
+    document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    document.querySelectorAll('.card').forEach(card => {
+      if (tag === 'all' || card.dataset.tag === tag) {
+        card.classList.add('visible');
+      } else {
+        card.classList.remove('visible');
+      }
+    });
+  }
+</script>
+
+</body>
+</html>
