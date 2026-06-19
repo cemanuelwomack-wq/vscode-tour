@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1355,6 +1357,134 @@
     .hs-rent-card  { min-width: 110px; }
   }
 
+  /* ── 2010e SAMPLE REQUIREMENTS ── */
+  .hs-2010e-sample {
+    margin-top: 28px;
+    border: 2px solid var(--amber);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  .hs-2010e-sample-hdr {
+    background: linear-gradient(135deg, #FFF8DC 0%, #FFEEA0 100%);
+    padding: 20px 24px;
+    border-bottom: 1px solid rgba(232,168,32,0.35);
+  }
+
+  .hs-2010e-sample-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #7A5000;
+    margin-bottom: 7px;
+  }
+
+  .hs-2010e-sample-title {
+    font-family: Georgia, serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--charcoal);
+    margin-bottom: 8px;
+  }
+
+  .hs-2010e-sample-sub {
+    font-size: 13px;
+    color: #5A4500;
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  .hs-2010e-sample-body {
+    background: #FFFDF5;
+    padding: 24px;
+  }
+
+  .hs-2010e-section { margin-bottom: 22px; }
+  .hs-2010e-section:last-child { margin-bottom: 0; }
+
+  .hs-2010e-section-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--forest-mid);
+    padding: 6px 12px;
+    background: rgba(46,92,28,0.07);
+    border-left: 3px solid var(--forest-mid);
+    border-radius: 0 6px 6px 0;
+    margin-bottom: 10px;
+  }
+
+  .hs-2010e-items {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px 18px;
+    padding-left: 4px;
+  }
+
+  @media (max-width: 600px) { .hs-2010e-items { grid-template-columns: 1fr; } }
+
+  .hs-2010e-item {
+    font-size: 12px;
+    color: #555;
+    line-height: 1.55;
+    display: flex;
+    align-items: flex-start;
+    gap: 7px;
+  }
+
+  .hs-2010e-item::before {
+    content: '▸';
+    color: var(--amber);
+    font-size: 10px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .hs-2010e-note {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 10px;
+    line-height: 1.65;
+  }
+
+  .hs-2010e-docs {
+    background: rgba(197,56,40,0.05);
+    border: 1px solid rgba(197,56,40,0.2);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-top: 22px;
+  }
+
+  .hs-2010e-docs-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 10px;
+  }
+
+  .hs-2010e-docs ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+
+  .hs-2010e-docs li {
+    font-size: 12px;
+    color: #555;
+    line-height: 1.6;
+    padding-left: 18px;
+    position: relative;
+  }
+
+  .hs-2010e-docs li::before {
+    content: '!';
+    position: absolute;
+    left: 0;
+    color: var(--red);
+    font-weight: 700;
+    font-size: 11px;
+  }
+
   /* ── JOBS SECTION ── */
   .jobs-section { display: none; background: var(--cream); }
 
@@ -1794,6 +1924,139 @@
             <li>Limited availability in certain boroughs</li>
           </ul></div>
         </div>
+
+        <!-- 2010e SAMPLE REQUIREMENTS -->
+        <div class="hs-2010e-sample">
+          <div class="hs-2010e-sample-hdr">
+            <div class="hs-2010e-sample-label">📋 Sample of 2010e Requirements</div>
+            <div class="hs-2010e-sample-title">What the Actual Application Packet Asks For</div>
+            <p class="hs-2010e-sample-sub">Your housing specialist fills out the HRA 2010e on your behalf — but you are the source of every answer. Knowing what the form asks will help you arrive with accurate information ready and avoid delays from missing documentation. The full packet includes the online application, a psychosocial summary, and a psychiatric evaluation.</p>
+          </div>
+          <div class="hs-2010e-sample-body">
+
+            <div class="hs-2010e-section">
+              <div class="hs-2010e-section-title">Section 1 — Demographics</div>
+              <div class="hs-2010e-items">
+                <div class="hs-2010e-item">Full legal name and any aliases (AKA)</div>
+                <div class="hs-2010e-item">Date of birth and Social Security Number</div>
+                <div class="hs-2010e-item">Gender identity and preferred pronouns</div>
+                <div class="hs-2010e-item">Ethnicity and primary language spoken</div>
+                <div class="hs-2010e-item">Current mailing address or shelter</div>
+                <div class="hs-2010e-item">Borough preference</div>
+                <div class="hs-2010e-item">Marital status</div>
+                <div class="hs-2010e-item">Highest education level completed</div>
+                <div class="hs-2010e-item">Veteran status and type of discharge (if applicable)</div>
+                <div class="hs-2010e-item">Employment in the past 2 years (total months)</div>
+                <div class="hs-2010e-item">All income sources and monthly amounts</div>
+                <div class="hs-2010e-item">Medicaid / Medicare / SNAP / SSI / SSDI status</div>
+              </div>
+            </div>
+
+            <div class="hs-2010e-section">
+              <div class="hs-2010e-section-title">Section 2 — Housing &amp; Homeless History (Last 4 Years)</div>
+              <div class="hs-2010e-items">
+                <div class="hs-2010e-item">Every address with move-in and move-out dates</div>
+                <div class="hs-2010e-item">Housing type at each address (shelter, family/friends, facility, street, etc.)</div>
+                <div class="hs-2010e-item">Facility names and street addresses for each location</div>
+                <div class="hs-2010e-item">All episodes of homelessness with supporting documentation</div>
+                <div class="hs-2010e-item">DHS/HRA shelter history (auto-populated if you are in the system)</div>
+                <div class="hs-2010e-item">Letters from outreach teams or drop-ins for any street homelessness</div>
+              </div>
+            </div>
+
+            <div class="hs-2010e-section">
+              <div class="hs-2010e-section-title">Section 3 — Clinical Assessment</div>
+              <div class="hs-2010e-items">
+                <div class="hs-2010e-item">Medical diagnoses with DSM codes (Rule Out / History Of)</div>
+                <div class="hs-2010e-item">Psychiatric diagnoses with DSM codes (Rule Out / History Of / Provisional)</div>
+                <div class="hs-2010e-item">HIV/AIDS diagnosis and HASA enrollment status</div>
+                <div class="hs-2010e-item">AOT (Assisted Outpatient Treatment) status — yes / no / pending</div>
+                <div class="hs-2010e-item">ACT Team or Intensive Mobile Treatment (IMT) enrollment</div>
+                <div class="hs-2010e-item">Other conditions that may be a focus of clinical attention</div>
+              </div>
+            </div>
+
+            <div class="hs-2010e-section">
+              <div class="hs-2010e-section-title">Section 4 — Activities of Daily Living (ADL)</div>
+              <div class="hs-2010e-items">
+                <div class="hs-2010e-item">Personal hygiene (bathing, dressing, laundry, personal care)</div>
+                <div class="hs-2010e-item">Travel / mobility (public transit, stairs, vision or hearing challenges)</div>
+                <div class="hs-2010e-item">Shopping &amp; meal preparation</div>
+                <div class="hs-2010e-item">Managing finances (paying bills, monthly budgeting)</div>
+                <div class="hs-2010e-item">Apartment / room upkeep (cleaning, trash, fire safety awareness)</div>
+                <div class="hs-2010e-item">Social skills / supports (relationships, isolation, respecting neighbors)</div>
+                <div class="hs-2010e-item">Managing health &amp; behavioral health (appointments, medications, relapse awareness)</div>
+              </div>
+              <p class="hs-2010e-note">For each ADL, your provider marks <strong>Direct Assistance</strong>, <strong>Some Support</strong>, or <strong>Mostly Independent</strong>. This section directly affects which housing level you are matched to — be honest about where you actually need help.</p>
+            </div>
+
+            <div class="hs-2010e-section">
+              <div class="hs-2010e-section-title">Section 5 — Medications &amp; Treatment Providers</div>
+              <div class="hs-2010e-items">
+                <div class="hs-2010e-item">All current medications (psychotropic and non-psychotropic)</div>
+                <div class="hs-2010e-item">Medication support level needed once housed (dispensing, supervision, reminders, or independent)</div>
+                <div class="hs-2010e-item">Current case management, medical, and mental health providers</div>
+                <div class="hs-2010e-item">Health Home enrollment (agency name, contact, phone)</div>
+                <div class="hs-2010e-item">Managed Long-Term Care (MLTC) plan if applicable</div>
+              </div>
+            </div>
+
+            <div class="hs-2010e-section">
+              <div class="hs-2010e-section-title">Section 6 — Psychiatric History &amp; Hospitalizations</div>
+              <div class="hs-2010e-items">
+                <div class="hs-2010e-item">Ever been psychiatrically hospitalized? (yes / no)</div>
+                <div class="hs-2010e-item">Number of psychiatric hospitalizations in the past 3 years</div>
+                <div class="hs-2010e-item">Most recent discharge date</div>
+                <div class="hs-2010e-item">Currently hospitalized — date of admission and service type</div>
+                <div class="hs-2010e-item">History of involuntary psychiatric transport or outreach escort</div>
+              </div>
+            </div>
+
+            <div class="hs-2010e-section">
+              <div class="hs-2010e-section-title">Section 7 — Symptoms &amp; Substance Use</div>
+              <div class="hs-2010e-items">
+                <div class="hs-2010e-item">Homicidal ideation / attempts — Current, History, or Never</div>
+                <div class="hs-2010e-item">Suicidal ideation / attempts — Current, History, or Never</div>
+                <div class="hs-2010e-item">Violent or disruptive behavior — Current, History, or Never</div>
+                <div class="hs-2010e-item">Criminal convictions — Current, History, or Never</div>
+                <div class="hs-2010e-item">Cognitive impairment, hallucinations, delusions — Current, History, or Never</div>
+                <div class="hs-2010e-item">Clinical depression or hypomania / mania — Current, History, or Never</div>
+                <div class="hs-2010e-item">Substances used within the last 3 months</div>
+                <div class="hs-2010e-item">Substances used in the past and pattern of use</div>
+                <div class="hs-2010e-item">Sobriety period for alcohol and drugs (date started if known)</div>
+                <div class="hs-2010e-item">Current or completed substance use treatment program information</div>
+              </div>
+            </div>
+
+            <div class="hs-2010e-section">
+              <div class="hs-2010e-section-title">Section 8 — Domestic Violence &amp; Housing Preferences</div>
+              <div class="hs-2010e-items">
+                <div class="hs-2010e-item">History of domestic violence (how long ago, services received)</div>
+                <div class="hs-2010e-item">Gender-based violence risk</div>
+                <div class="hs-2010e-item">Borough preference — 1st choice, 2nd choice, any exclusions</div>
+                <div class="hs-2010e-item">Willingness to share apartment or bathroom</div>
+                <div class="hs-2010e-item">Mobility, visual, or hearing limitations affecting unit type needed</div>
+                <div class="hs-2010e-item">Smoke-free building preference</div>
+                <div class="hs-2010e-item">LGBTQ+ affirming program interest (yes / no / no preference)</div>
+                <div class="hs-2010e-item">Service or emotional support animal</div>
+                <div class="hs-2010e-item">Standing appointments — days and times unavailable for housing interviews</div>
+              </div>
+            </div>
+
+            <div class="hs-2010e-docs">
+              <div class="hs-2010e-docs-title">Supporting Documents Required With the Application</div>
+              <ul>
+                <li><strong>PPD / TB Test</strong> — results within 180 days, must be signed by a physician, physician assistant, or nurse practitioner.</li>
+                <li><strong>Comprehensive Psychosocial Summary</strong> — written by your caseworker or social worker within the past 6 months. Must cover: identifying data, social history, education and work history, psychiatric and substance history, full housing history, current level of functioning, and a summary with recommendation. Applicant should review it before it is submitted.</li>
+                <li><strong>Psychiatric Evaluation</strong> — written by a licensed psychiatrist, psychologist, psychiatric NP, or LCSW within the past 6 months. Must include a full mental status exam across 12 domains, all DSM diagnoses, current medications, and clinical recommendations. Provider's NYS license number must appear on the document.</li>
+                <li><strong>Homelessness Documentation</strong> — if you have been street homeless or in a shelter not in the DHS/HRA system, you need a dated letter on agency letterhead from a street outreach team, drop-in center, or shelter confirming where and when you were homeless.</li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+        <!-- end 2010e sample -->
+
       </div>
     </div>
 
