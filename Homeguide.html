@@ -1538,23 +1538,44 @@
     align-items: center;
     gap: 12px;
     padding: 12px 18px;
-    text-decoration: none;
     color: var(--charcoal);
     font-size: 13px;
     font-weight: 500;
     line-height: 1.4;
     border-bottom: 1px solid var(--cream-mid);
-    transition: background 0.15s;
   }
 
   .hs-form-link:last-child { border-bottom: none; }
 
-  .hs-form-link:hover { background: var(--cream-mid); color: var(--forest); }
-
   .hs-form-icon { font-size: 16px; flex-shrink: 0; }
 
+  .hs-form-name { flex: 1; }
+
+  .hs-form-actions {
+    display: flex;
+    gap: 6px;
+    flex-shrink: 0;
+  }
+
+  .hs-form-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background 0.15s;
+  }
+
+  .hs-form-action.view { background: #EAF3DE; color: #3D6B28; }
+  .hs-form-action.view:hover { background: #d4e9c0; }
+
+  .hs-form-action.dl { background: #E6F1FB; color: #185FA5; }
+  .hs-form-action.dl:hover { background: #cce2f5; }
+
   .hs-form-badge {
-    margin-left: auto;
     flex-shrink: 0;
     font-size: 10px;
     font-weight: 700;
@@ -2142,41 +2163,69 @@
                 <span class="hs-forms-arrow">▾</span>
               </button>
               <div class="hs-forms-menu">
-                <a href="Forms/NYC%20Supportive%20Housing%20application%20(4).pdf" target="_blank" class="hs-form-link">
+                <div class="hs-form-link">
                   <span class="hs-form-icon">📋</span>
-                  <span>NYC Supportive Housing Application (2010e)</span>
+                  <span class="hs-form-name">NYC Supportive Housing Application (2010e)</span>
+                  <div class="hs-form-actions">
+                    <a href="Forms/NYC%20Supportive%20Housing%20application%20(4).pdf" target="_blank" class="hs-form-action view">👁 View</a>
+                    <a href="Forms/NYC%20Supportive%20Housing%20application%20(4).pdf" download class="hs-form-action dl">⬇ Save</a>
+                  </div>
                   <span class="hs-form-badge hs-form-badge-pdf">PDF</span>
-                </a>
-                <a href="Forms/CAS%20-%20revised%2003.19.24-FINAL.pdf" target="_blank" class="hs-form-link">
+                </div>
+                <div class="hs-form-link">
                   <span class="hs-form-icon">📋</span>
-                  <span>NYC Coordinated Assessment Survey (CAS)</span>
+                  <span class="hs-form-name">NYC Coordinated Assessment Survey (CAS)</span>
+                  <div class="hs-form-actions">
+                    <a href="Forms/CAS%20-%20revised%2003.19.24-FINAL.pdf" target="_blank" class="hs-form-action view">👁 View</a>
+                    <a href="Forms/CAS%20-%20revised%2003.19.24-FINAL.pdf" download class="hs-form-action dl">⬇ Save</a>
+                  </div>
                   <span class="hs-form-badge hs-form-badge-pdf">PDF</span>
-                </a>
-                <a href="Forms/HRA%202010e%20insert.pdf" target="_blank" class="hs-form-link">
+                </div>
+                <div class="hs-form-link">
                   <span class="hs-form-icon">📋</span>
-                  <span>HRA 2010e Application Overview</span>
+                  <span class="hs-form-name">HRA 2010e Application Overview</span>
+                  <div class="hs-form-actions">
+                    <a href="Forms/HRA%202010e%20insert.pdf" target="_blank" class="hs-form-action view">👁 View</a>
+                    <a href="Forms/HRA%202010e%20insert.pdf" download class="hs-form-action dl">⬇ Save</a>
+                  </div>
                   <span class="hs-form-badge hs-form-badge-pdf">PDF</span>
-                </a>
-                <a href="Forms/CUCS%20-%20Completing%20the%20HRA%202010e%20rev.%202019.pdf" target="_blank" class="hs-form-link">
+                </div>
+                <div class="hs-form-link">
                   <span class="hs-form-icon">📖</span>
-                  <span>Guide: Completing the HRA 2010e</span>
+                  <span class="hs-form-name">Guide: Completing the HRA 2010e</span>
+                  <div class="hs-form-actions">
+                    <a href="Forms/CUCS%20-%20Completing%20the%20HRA%202010e%20rev.%202019.pdf" target="_blank" class="hs-form-action view">👁 View</a>
+                    <a href="Forms/CUCS%20-%20Completing%20the%20HRA%202010e%20rev.%202019.pdf" download class="hs-form-action dl">⬇ Save</a>
+                  </div>
                   <span class="hs-form-badge hs-form-badge-pdf">PDF</span>
-                </a>
-                <a href="Forms/CUCS%20-%20Creating%20a%20Comprehensive%20Psychosocial%20(1)%20-%20Copy.pdf" target="_blank" class="hs-form-link">
+                </div>
+                <div class="hs-form-link">
                   <span class="hs-form-icon">📖</span>
-                  <span>Guide: Creating a Comprehensive Psychosocial</span>
+                  <span class="hs-form-name">Guide: Creating a Comprehensive Psychosocial</span>
+                  <div class="hs-form-actions">
+                    <a href="Forms/CUCS%20-%20Creating%20a%20Comprehensive%20Psychosocial%20(1)%20-%20Copy.pdf" target="_blank" class="hs-form-action view">👁 View</a>
+                    <a href="Forms/CUCS%20-%20Creating%20a%20Comprehensive%20Psychosocial%20(1)%20-%20Copy.pdf" download class="hs-form-action dl">⬇ Save</a>
+                  </div>
                   <span class="hs-form-badge hs-form-badge-pdf">PDF</span>
-                </a>
-                <a href="Forms/CUCS%20-%20Suggested%20Outline%20for%20Psychiatric%20Summary.pdf" target="_blank" class="hs-form-link">
+                </div>
+                <div class="hs-form-link">
                   <span class="hs-form-icon">📖</span>
-                  <span>Guide: Psychiatric Summary Outline</span>
+                  <span class="hs-form-name">Guide: Psychiatric Summary Outline</span>
+                  <div class="hs-form-actions">
+                    <a href="Forms/CUCS%20-%20Suggested%20Outline%20for%20Psychiatric%20Summary.pdf" target="_blank" class="hs-form-action view">👁 View</a>
+                    <a href="Forms/CUCS%20-%20Suggested%20Outline%20for%20Psychiatric%20Summary.pdf" download class="hs-form-action dl">⬇ Save</a>
+                  </div>
                   <span class="hs-form-badge hs-form-badge-pdf">PDF</span>
-                </a>
-                <a href="Forms/Documentation%20checklist%20(2).docx" class="hs-form-link">
+                </div>
+                <div class="hs-form-link">
                   <span class="hs-form-icon">📝</span>
-                  <span>Documentation Checklist</span>
+                  <span class="hs-form-name">Documentation Checklist</span>
+                  <div class="hs-form-actions">
+                    <a href="Forms/Documentation%20checklist%20(2).docx" target="_blank" class="hs-form-action view">👁 View</a>
+                    <a href="Forms/Documentation%20checklist%20(2).docx" download class="hs-form-action dl">⬇ Save</a>
+                  </div>
                   <span class="hs-form-badge hs-form-badge-doc">DOCX</span>
-                </a>
+                </div>
               </div>
             </div>
 
