@@ -1485,6 +1485,92 @@
     font-size: 11px;
   }
 
+  /* ── FORMS DROPDOWN ── */
+  .hs-forms-dropdown-wrap {
+    position: relative;
+    margin-top: 24px;
+  }
+
+  .hs-forms-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    width: 100%;
+    background: var(--forest);
+    color: var(--white);
+    font-family: system-ui, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 13px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .hs-forms-btn:hover { background: var(--forest-mid); }
+
+  .hs-forms-btn-left { display: flex; align-items: center; gap: 9px; }
+
+  .hs-forms-arrow {
+    font-size: 12px;
+    transition: transform 0.2s;
+    flex-shrink: 0;
+  }
+
+  .hs-forms-dropdown-wrap.open .hs-forms-arrow { transform: rotate(180deg); }
+
+  .hs-forms-menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    right: 0;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.13);
+    overflow: hidden;
+    z-index: 50;
+  }
+
+  .hs-forms-dropdown-wrap.open .hs-forms-menu { display: block; }
+
+  .hs-form-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 18px;
+    text-decoration: none;
+    color: var(--charcoal);
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.4;
+    border-bottom: 1px solid var(--cream-mid);
+    transition: background 0.15s;
+  }
+
+  .hs-form-link:last-child { border-bottom: none; }
+
+  .hs-form-link:hover { background: var(--cream-mid); color: var(--forest); }
+
+  .hs-form-icon { font-size: 16px; flex-shrink: 0; }
+
+  .hs-form-badge {
+    margin-left: auto;
+    flex-shrink: 0;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 100px;
+  }
+
+  .hs-form-badge-pdf { background: #E6F1FB; color: #185FA5; }
+  .hs-form-badge-doc { background: #EAF3DE; color: #3D6B28; }
+
   /* ── JOBS SECTION ── */
   .jobs-section { display: none; background: var(--cream); }
 
@@ -2051,6 +2137,51 @@
                 <li><strong>Psychiatric Evaluation</strong> — written by a licensed psychiatrist, psychologist, psychiatric NP, or LCSW within the past 6 months. Must include a full mental status exam across 12 domains, all DSM diagnoses, current medications, and clinical recommendations. Provider's NYS license number must appear on the document.</li>
                 <li><strong>Homelessness Documentation</strong> — if you have been street homeless or in a shelter not in the DHS/HRA system, you need a dated letter on agency letterhead from a street outreach team, drop-in center, or shelter confirming where and when you were homeless.</li>
               </ul>
+            </div>
+
+            <!-- FORMS DROPDOWN -->
+            <div class="hs-forms-dropdown-wrap">
+              <button class="hs-forms-btn" onclick="toggleFormsDropdown(this)">
+                <span class="hs-forms-btn-left">📄 Download Application Forms &amp; Documents</span>
+                <span class="hs-forms-arrow">▾</span>
+              </button>
+              <div class="hs-forms-menu">
+                <a href="Forms/NYC%20Supportive%20Housing%20application%20(4).pdf" target="_blank" class="hs-form-link">
+                  <span class="hs-form-icon">📋</span>
+                  <span>NYC Supportive Housing Application (2010e)</span>
+                  <span class="hs-form-badge hs-form-badge-pdf">PDF</span>
+                </a>
+                <a href="Forms/CAS%20-%20revised%2003.19.24-FINAL.pdf" target="_blank" class="hs-form-link">
+                  <span class="hs-form-icon">📋</span>
+                  <span>NYC Coordinated Assessment Survey (CAS)</span>
+                  <span class="hs-form-badge hs-form-badge-pdf">PDF</span>
+                </a>
+                <a href="Forms/HRA%202010e%20insert.pdf" target="_blank" class="hs-form-link">
+                  <span class="hs-form-icon">📋</span>
+                  <span>HRA 2010e Application Overview</span>
+                  <span class="hs-form-badge hs-form-badge-pdf">PDF</span>
+                </a>
+                <a href="Forms/CUCS%20-%20Completing%20the%20HRA%202010e%20rev.%202019.pdf" target="_blank" class="hs-form-link">
+                  <span class="hs-form-icon">📖</span>
+                  <span>Guide: Completing the HRA 2010e</span>
+                  <span class="hs-form-badge hs-form-badge-pdf">PDF</span>
+                </a>
+                <a href="Forms/CUCS%20-%20Creating%20a%20Comprehensive%20Psychosocial%20(1)%20-%20Copy.pdf" target="_blank" class="hs-form-link">
+                  <span class="hs-form-icon">📖</span>
+                  <span>Guide: Creating a Comprehensive Psychosocial</span>
+                  <span class="hs-form-badge hs-form-badge-pdf">PDF</span>
+                </a>
+                <a href="Forms/CUCS%20-%20Suggested%20Outline%20for%20Psychiatric%20Summary.pdf" target="_blank" class="hs-form-link">
+                  <span class="hs-form-icon">📖</span>
+                  <span>Guide: Psychiatric Summary Outline</span>
+                  <span class="hs-form-badge hs-form-badge-pdf">PDF</span>
+                </a>
+                <a href="Forms/Documentation%20checklist%20(2).docx" class="hs-form-link">
+                  <span class="hs-form-icon">📝</span>
+                  <span>Documentation Checklist</span>
+                  <span class="hs-form-badge hs-form-badge-doc">DOCX</span>
+                </a>
+              </div>
             </div>
 
           </div>
@@ -2956,6 +3087,18 @@
     el.classList.add('active');
     document.getElementById('hsp-' + id).classList.add('active');
   }
+
+  function toggleFormsDropdown(btn) {
+    btn.closest('.hs-forms-dropdown-wrap').classList.toggle('open');
+  }
+
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.hs-forms-dropdown-wrap')) {
+      document.querySelectorAll('.hs-forms-dropdown-wrap.open').forEach(function(d) {
+        d.classList.remove('open');
+      });
+    }
+  });
 
   document.querySelectorAll('.pill').forEach(pill => {
     pill.addEventListener('click', function() {
