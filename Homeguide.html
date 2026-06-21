@@ -1822,6 +1822,37 @@
     .mf-or { padding-top: 0; }
   }
 
+  /* Pull section borders out to the screen edges so text gets the
+     full width to wrap into, instead of leaving the page taller.
+     Placed last so it wins the cascade over the unconditional rules above. */
+  @media (max-width: 600px) {
+    nav { padding: 0 1rem; }
+    .hero { padding: 48px 1rem 0; }
+    .how-it-works-bar { padding: 12px 1rem; }
+    .stats-strip { padding: 16px 1rem; }
+    .main-wrap { padding: 32px 1rem; }
+    .interviews-section { padding: 32px 1rem; }
+    .cta-band { padding: 32px 1rem; }
+    footer { padding: 28px 1rem 20px; }
+
+    .hs-banner { padding: 32px 1rem; }
+    .hs-rent-row { padding: 16px 1rem; }
+    .hs-inner { padding: 24px 1rem 32px; }
+    .hs-card { padding: 18px 16px; }
+    .hs-program, .hs-connect-wrap, .hs-2010e-sample { border-radius: 12px; }
+    .hs-prog-header { padding: 16px 18px; }
+    .hs-prog-body { padding: 18px 16px; }
+    .hs-connect-hdr { padding: 16px 18px; }
+    .hs-connect-body { padding: 18px 16px; }
+    .hs-2010e-sample-hdr { padding: 14px 16px; }
+    .hs-2010e-sample-body { padding: 16px; }
+    .hs-2010e-docs { padding: 12px 14px; }
+
+    .org-card, .blog-card, .sidebar-card { border-radius: 12px; }
+    .blog-body { padding: 16px; }
+    .sidebar-card { padding: 18px; }
+  }
+
 </style>
 </head>
 <body>
